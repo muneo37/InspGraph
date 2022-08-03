@@ -1,6 +1,21 @@
 ﻿@page "/judgeResult"
 
+@inherits ViewComponentBase<JudgeResultViewModel>
+
 <h3>判定結果</h3>
+
+<div class="row">
+    <div class="col-2">
+        <InputButton Class="btn btn-primary" Command="@DataContext.CreateChartCommand">Create Chart!</InputButton>
+    </div>
+</div>
+
+<div class="row my-4">
+    <div class="col">
+        <h3>グラフ 1</h3>
+        <LineChart id="chart1" ItemsSource="@DataContext.ChartItems" />
+    </div>
+</div>
 
 @code {
 
