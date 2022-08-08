@@ -32,6 +32,31 @@
 
     private void UpdateChart()
     {
+        var jsonBuilder = new StringBuilder();
+        jsonBuilder.AppendLine("{");
+        jsonBuilder.AppendLine("  \"type\": \"bar\",");
+        jsonBuilder.AppendLine("  \"data\": {");
+        jsonBuilder.AppendLine("    \"labels\": [");
+        jsonBuilder.AppendLine("       \"Red\", \"Blue\", \"Yellow\", \"Green\", \"Purple\", \"Orange\"");
+        jsonBuilder.AppendLine("    ],");
+        jsonBuilder.AppendLine("    \"datasets\":[");
+        jsonBuilder.AppendLine("{");
+        jsonBuilder.AppendLine("\"label\": \"# of Votes\",");
+        jsonBuilder.AppendLine("\"data\": [12, 19, 3, 5, 2, 3],");
+        jsonBuilder.AppendLine
+
+
+
+        jsonBuilder.AppendLine("  },");
+        jsonBuilder.AppendLine("  \"options\": {");
+
+        jsonBuilder.AppendLine("    \"scales\": { \"xAxes\": [{\"type\": \"linear\", \"position\": \"bottom\", \"ticks\": {\"min\": 0, \"max\": 1000} }], \"yAxes\": [{\"ticks\": {\"min\": -2, \"max\": 2}}] }");
+
+        jsonBuilder.AppendLine("  }");
+        jsonBuilder.AppendLine("}");
+        var json = jsonBuilder.ToString();
+
+
         var json = JSON.stringify({
                     "type": "bar",
                     "data": {
