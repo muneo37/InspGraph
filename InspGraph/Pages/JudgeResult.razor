@@ -6,7 +6,7 @@
 
 <div class="row">
     <div class="col-2">
-        <InputButton Class="btn btn-primary" @onclick="@RenderNewChart">Create Chart!</InputButton>
+        <InputButton Class="btn btn-primary" Command="@DataContext.CreateChartCommand">Create Chart!</InputButton>
     </div>
 </div>
 
@@ -16,20 +16,9 @@
         <LineChart id="chart1" ItemsSource="@DataContext.ChartItems" />
         <h3>棒グラフ</h3>
         <BarChart id="chart2" ItemsSource="@DataContext.ChartItems2" />
-@*        <h3>気温グラフ</h3>
-        <canvas id="myChart"/>
-*@
     </div>
 </div>
 
-@using InspGraph.Data
-@inject WeatherForecastService ForecastService
-@inject IJSRuntime JSRuntime
+
 @code{
-    public async Task RenderNewChart()
-    {
-        var json = await ForecastService.GetForecastAsync(DateTime.Now);
-        var jsonStr = json._toString();
-        await JSRuntime.InvokeAsync<string>("renderChart", jsonStr);
-    }
 }
