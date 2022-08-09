@@ -35,20 +35,61 @@
             return;
         }
 
+        //var jsonBuilder = new StringBuilder();
+        //jsonBuilder.AppendLine("{");
+        //jsonBuilder.AppendLine("  \"type\": \"scatter\",");
+        //jsonBuilder.AppendLine("  \"data\": {");
+        //jsonBuilder.AppendLine("    \"datasets\": [");
+        //jsonBuilder.AppendLine("       " + string.Join(", \r\n       ", this.ItemsSource.Select(x => x.ToString())));
+        //jsonBuilder.AppendLine("    ]");
+        //jsonBuilder.AppendLine("  },");
+        //jsonBuilder.AppendLine("  \"options\": {");
+
+        //jsonBuilder.AppendLine("    \"scales\": { \"xAxes\": [{\"type\": \"linear\", \"position\": \"bottom\", \"ticks\": {\"min\": 0, \"max\": 1000} }], \"yAxes\": [{\"ticks\": {\"min\": -2, \"max\": 2}}] }");
+
+        //jsonBuilder.AppendLine("  }");
+        //jsonBuilder.AppendLine("}");
+
         var jsonBuilder = new StringBuilder();
         jsonBuilder.AppendLine("{");
-        jsonBuilder.AppendLine("  \"type\": \"scatter\",");
+        jsonBuilder.AppendLine("  \"type\": \"bar\",");
         jsonBuilder.AppendLine("  \"data\": {");
-        jsonBuilder.AppendLine("    \"datasets\": [");
-        jsonBuilder.AppendLine("       " + string.Join(", \r\n       ", this.ItemsSource.Select(x => x.ToString())));
-        jsonBuilder.AppendLine("    ]");
-        jsonBuilder.AppendLine("  },");
+        jsonBuilder.AppendLine("    \"labels\": [");
+        jsonBuilder.AppendLine("       \"Red\", \"Blue\", \"Yellow\", \"Green\", \"Purple\", \"Orange\"");
+        jsonBuilder.AppendLine("    ],");
+        jsonBuilder.AppendLine("    \"datasets\":[");
+
+      
+        jsonBuilder.AppendLine("{");
+        jsonBuilder.AppendLine("\"label\": \"# of Votes\",");
+        jsonBuilder.AppendLine("\"data\": [12, 19, 3, 5, 2, 3],");
+        jsonBuilder.AppendLine("\"backgroundColor\": [");
+        jsonBuilder.AppendLine("\"rgba(255, 99, 132, 0.2)\",");
+        jsonBuilder.AppendLine("\"rgba(255, 99, 132, 0.2)\",");
+        jsonBuilder.AppendLine("\"rgba(255, 99, 132, 0.2)\",");
+        jsonBuilder.AppendLine("\"rgba(255, 99, 132, 0.2)\",");
+        jsonBuilder.AppendLine("\"rgba(255, 99, 132, 0.2)\",");
+        jsonBuilder.AppendLine("\"rgba(255, 99, 132, 0.2)\"");
+        jsonBuilder.AppendLine("],");
+        jsonBuilder.AppendLine("\"borderColor\": [");
+        jsonBuilder.AppendLine("\"rgba(255, 50, 132, 0.2)\",");
+        jsonBuilder.AppendLine("\"rgba(255, 50, 132, 0.2)\",");
+        jsonBuilder.AppendLine("\"rgba(255, 99, 132, 0.2)\",");
+        jsonBuilder.AppendLine("\"rgba(255, 99, 132, 0.2)\",");
+        jsonBuilder.AppendLine("\"rgba(255, 99, 132, 0.2)\",");
+        jsonBuilder.AppendLine("\"rgba(255, 99, 132, 0.2)\"");
+        jsonBuilder.AppendLine("],");
+        jsonBuilder.AppendLine("\"borderWidth\": 1");
+        jsonBuilder.AppendLine("}");
+        jsonBuilder.AppendLine("]");
+        jsonBuilder.AppendLine("},");
         jsonBuilder.AppendLine("  \"options\": {");
 
         jsonBuilder.AppendLine("    \"scales\": { \"xAxes\": [{\"type\": \"linear\", \"position\": \"bottom\", \"ticks\": {\"min\": 0, \"max\": 1000} }], \"yAxes\": [{\"ticks\": {\"min\": -2, \"max\": 2}}] }");
 
         jsonBuilder.AppendLine("  }");
         jsonBuilder.AppendLine("}");
+
         var json = jsonBuilder.ToString();
         JS.InvokeVoidAsync("renderChart", this.Id, json);
     }
