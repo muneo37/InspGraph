@@ -1,0 +1,42 @@
+﻿@using InspGraph.Data
+@inject IJSRuntime JS;
+@inject WeatherForecastService ForecastService
+@using System.Text;
+
+<canvas id="@Id"></canvas>
+
+@code {
+    [Parameter]
+    public string Id { get; set; } = "myChart";
+
+    [Parameter]
+    public IEnumerable<ChartItem>? ItemsSource{ get; set; }
+
+    private IEnumerable<ChartItem>? _itemsSourceCore;
+    private IEnumerable<ChartItem>? ItemsCourceCore
+    {
+        get => this._itemsSourceCore;
+        set
+        {
+            if(this._itemsSourceCore != value)
+            {
+                this._itemsSourceCore = value;
+                UpdateChart();
+            }
+        }
+    }
+
+    protected override void OnParametersSet()
+    {
+        this.ItemsCourceCore = this.ItemsSource;
+    }
+
+    private void UpdateChart()
+    {
+        var jsonBuilder = ForecastService.GetForecastAsync(DateTime.Now);
+        var json = jsonBuilder.ToString();
+
+        JS.InvokeVoidAsync("renderChart", this.Id, json);
+    }
+
+}

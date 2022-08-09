@@ -95,5 +95,12 @@ public class JudgeResultViewModel : NotificationObject
         set { SetProperty(ref this._chartItems2, value); }
     }
 
+    private IEnumerable<ChartItem>? _chartItems3;
+    public IEnumerable<ChartItem>? ChartItems3
+    {
+        get => this._chartItems3;
+        set { SetProperty(ref this._chartItems3, value); }
+    }
+
     private Random _rand = new Random();
 }
