@@ -1,45 +1,13 @@
-﻿using System.Drawing;
-
-namespace InspGraph
+﻿namespace InspGraph.Core
 {
-    public class ChartItem
+    public class BarChartItem : ChartItem
     {
-        public ChartItem()
+        public BarChartItem(int[] data)
         {
-            ;
+            this.Data = data;
         }
 
-        public ChartItem(Tuple<double, double>[] data)
-        {
-            if (data is null)
-                throw new ArgumentNullException("points");
-
-            this.Point = data;
-        }
-
-        public string Label { get; set; } = "ChartItem";
-
-        public Tuple<double, double>[] Point { get; set; }
-
-        public Color BackgroundColor { get; set; }
-
-        public Color BorderColor { get; set; }
-
-        public double BorderWidth { get; set; }
-
-        public PointStyles PointStyle { get; set; }
-
-        public double PointRadius { get; set; }
-
-        public Color PointBackgroundColor { get; set; }
-
-        public Color PointBorderColor { get; set; }
-
-        public double PointBorderWidth { get; set; }
-
-        public double PointHoverRadius { get; set; }
-
-        public bool IsShowLine { get; set; }
+        public int[] Data { get; set; }
 
         public override string ToString()
         {

@@ -11,7 +11,7 @@ public class JudgeResultViewModel : NotificationObject
 
     private void CreateChart()
     {
-        const int datanum = 1001;
+        const int datanum = 1000;
         this.ChartItems = new ChartItem[]
         {
             new ChartItem(Enumerable.Range(0, datanum).Select(x => new Tuple<double, double>(x, Math.Sin(2 * Math.PI * DateTime.Today.Day * x / 1000) + (this._rand.NextDouble() - 0.5) / 5)).ToArray())
@@ -28,7 +28,7 @@ public class JudgeResultViewModel : NotificationObject
                 PointHoverRadius = 8,
                 IsShowLine = true,
             },
-            new ChartItem(Enumerable.Range(0, datanum).Select(x => new Tuple<double, double>(x, Math.Sin(2 * Math.PI * DateTime.Today.Day * x / 1000 - Math.PI) + (this._rand.NextDouble() - 0.5) / 5)).ToArray())
+            new ChartItem(Enumerable.Range(0, datanum/2).Select(x => new Tuple<double, double>(x, Math.Sin(2 * Math.PI * DateTime.Today.Day * x / 1000 - Math.PI) + (this._rand.NextDouble() - 0.5) / 5)).ToArray())
             {
                 Label = "Item 2",
                 BackgroundColor = Color.FromArgb(255, 27, 110, 194),
