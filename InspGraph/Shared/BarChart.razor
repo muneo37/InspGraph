@@ -40,27 +40,7 @@
         jsonBuilder.AppendLine("\"8/9\", \"8/10\", \"8/11\", \"8/12\", \"8/13\"");
         jsonBuilder.AppendLine("],");
         jsonBuilder.AppendLine("\"datasets\":[");
-        //jsonBuilder.AppendLine("       " + string.Join(", \r\n       ", this.ItemsSource.Select(x => x.ToString())));
-
-        jsonBuilder.AppendLine("{");
-        jsonBuilder.AppendLine("\"label\": \"OK数\",");
-        jsonBuilder.AppendLine("\"data\": [12, 19, 3, 5, 2, 3],");
-        jsonBuilder.AppendLine("\"backgroundColor\": ");
-        jsonBuilder.AppendLine("\"rgba(255, 99, 132, 0.2)\",");
-        jsonBuilder.AppendLine("\"borderColor\": ");
-        jsonBuilder.AppendLine("\"rgba(255, 50, 132, 0.2)\",");
-        jsonBuilder.AppendLine("\"borderWidth\": 1");
-        jsonBuilder.AppendLine("},");
-        jsonBuilder.AppendLine("{");
-        jsonBuilder.AppendLine("\"label\": \"NG数\",");
-        jsonBuilder.AppendLine("\"data\": [3, 3, 2, 1, 2],");
-        jsonBuilder.AppendLine("\"backgroundColor\": ");
-        jsonBuilder.AppendLine("\"rgba(5, 99, 200, 0.2)\",");
-        jsonBuilder.AppendLine("\"borderColor\": ");
-        jsonBuilder.AppendLine("\"rgba(5, 50, 180, 0.2)\",");
-        jsonBuilder.AppendLine("\"borderWidth\": 1");
-        jsonBuilder.AppendLine("}");
-
+        jsonBuilder.AppendLine("       " + string.Join(", \r\n       ", this.ItemsSource.Select(x => x.ToString())));    
         jsonBuilder.AppendLine("]");
         jsonBuilder.AppendLine("},");
         jsonBuilder.AppendLine("\"options\": {\"scales\": {\"yAxes\": [{\"ticks\": {\"beginAtZero\": true}}]}}}");

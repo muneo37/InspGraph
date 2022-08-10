@@ -52,14 +52,14 @@ public class JudgeResultViewModel : NotificationObject
             new BarChartItem(OkData)
             {
                 Label = "OKêî",
-                BackgroundColor = Color.FromArgb(255, 20, 40, 200),
+                BackgroundColor = Color.FromArgb(100, 20, 40, 200),
                 BorderColor = Color.FromArgb(255, 10, 10, 255),
                 BorderWidth = 1,
             },
             new BarChartItem(NgData)
             {
                 Label = "NGêî",
-                BackgroundColor = Color.FromArgb(255, 240, 4, 30),
+                BackgroundColor = Color.FromArgb(100, 240, 4, 30),
                 BorderColor = Color.FromArgb(255, 255, 4, 25),
                 BorderWidth = 1,
             },
