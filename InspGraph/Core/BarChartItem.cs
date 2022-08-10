@@ -19,7 +19,7 @@
                     {
                         $"\"label\": \"{this.Label}\"",
                         $"\"data\": [{string.Join(", ", this.Data)}]",
-                        $"\"backgroudColor\": \"rgba({this.BackgroundColor.R}, {this.BackgroundColor.G}, {this.BackgroundColor.B}, {this.BackgroundColor.A / 255.0})\"",
+                        $"\"backgroundColor\": \"rgba({this.BackgroundColor.R}, {this.BackgroundColor.G}, {this.BackgroundColor.B}, {this.BackgroundColor.A / 255.0})\"",
                         $"\"borderColor\": \"rgba({this.BorderColor.R}, {this.BorderColor.G}, {this.BorderColor.B}, {this.BorderColor.A / 255.0})\"",
                         $"\"borderWidth\": {this.BorderWidth}",
                     })
