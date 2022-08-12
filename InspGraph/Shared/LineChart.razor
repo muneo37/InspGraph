@@ -1,17 +1,19 @@
-@inject IJSRuntime JS;
+﻿@inject IJSRuntime JS;
 @using System.Text;
 
 <canvas id="@Id"></canvas>
+
 
 @code {
     [Parameter]
     public string Id { get; set; } = "myChart";
 
+    //TODO BarChartItemクラスでも問題ないが、Itemクラスはどんな風にしたら共通化できるか要検討
     [Parameter]
-    public IEnumerable<ChartItem>? ItemsSource { get; set; }
+    public IEnumerable<BarChartItem>? ItemsSource { get; set; }
 
-    private IEnumerable<ChartItem>? _itemsSourceCore;
-    private IEnumerable<ChartItem>? ItemsSourceCore
+    private IEnumerable<BarChartItem>? _itemsSourceCore;
+    private IEnumerable<BarChartItem>? ItemsCourceCore
     {
         get => this._itemsSourceCore;
         set
@@ -26,31 +28,26 @@
 
     protected override void OnParametersSet()
     {
-        this.ItemsSourceCore = this.ItemsSource;
+        this.ItemsCourceCore = this.ItemsSource;
     }
+
     private void UpdateChart()
     {
-        if (this.ItemsSource is null)
-        {
-            return;
-        }
-
         var jsonBuilder = new StringBuilder();
         jsonBuilder.AppendLine("{");
-        jsonBuilder.AppendLine("  \"type\": \"scatter\",");
-        jsonBuilder.AppendLine("  \"data\": {");
-        jsonBuilder.AppendLine("    \"datasets\": [");
-        jsonBuilder.AppendLine("       " + string.Join(", \r\n       ", this.ItemsSource.Select(x => x.ToString())));
-        jsonBuilder.AppendLine("    ]");
-        jsonBuilder.AppendLine("  },");
-        jsonBuilder.AppendLine("  \"options\": {");
-
-        jsonBuilder.AppendLine("    \"scales\": { \"xAxes\": [{\"type\": \"linear\", \"position\": \"bottom\", \"ticks\": {\"min\": 0, \"max\": 1000} }], \"yAxes\": [{\"ticks\": {\"min\": -2, \"max\": 2}}] }");
-
-        jsonBuilder.AppendLine("  }");
-        jsonBuilder.AppendLine("}");
+        jsonBuilder.AppendLine("\"type\": \"line\",");
+        jsonBuilder.AppendLine("\"data\": {");
+        jsonBuilder.AppendLine("\"labels\": [");
+        jsonBuilder.AppendLine("\"8/9\", \"8/10\", \"8/11\", \"8/12\", \"8/13\", \"8/14\",\"8/15\",\"8/16\",\"8/17\",\"8/18\",\"8/19\",\"8/20\",\"8/21\",\"8/22\"");
+        jsonBuilder.AppendLine("],");
+        jsonBuilder.AppendLine("\"datasets\":[");
+        jsonBuilder.AppendLine("       " + string.Join(", \r\n       ", this.ItemsSource.Select(x => x.ToString())));    
+        jsonBuilder.AppendLine("]");
+        jsonBuilder.AppendLine("},");
+        jsonBuilder.AppendLine("\"options\": {\"scales\": {\"yAxes\": [{\"ticks\": {\"beginAtZero\": true}}]}}}");
 
         var json = jsonBuilder.ToString();
+
         JS.InvokeVoidAsync("renderChart", this.Id, json);
     }
 }

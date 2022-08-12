@@ -45,8 +45,10 @@ public class JudgeResultViewModel : NotificationObject
             },
         };
 
-        int[] OkData = { 30, 40, 100, 36, 55 };
-        int[] NgData = { 4, 3, 2, 6, 7 };
+        int[] OkData = { 10503, 9993, 5004, 12305, 7604, 9994, 4196,
+                         12345, 6467, 8858, 1305, 3467, 7774, 3735};
+        int[] NgData = { 30, 54, 65, 86, 44, 22, 16,
+                         87, 64, 8, 1, 76, 77, 85};
         this.ChartItems2 = new BarChartItem[]
         {
             new BarChartItem(OkData)
@@ -64,6 +66,26 @@ public class JudgeResultViewModel : NotificationObject
                 BorderWidth = 1,
             },
         };
+
+
+        this.ChartItems3 = new BarChartItem[]
+        {
+            new BarChartItem(OkData)
+            {
+                Label = "OKêî",
+                BackgroundColor = Color.FromArgb(100, 20, 40, 200),
+                BorderColor = Color.FromArgb(255, 10, 10, 255),
+                BorderWidth = 1,
+            },
+            new BarChartItem(NgData)
+            {
+                Label = "NGêî",
+                BackgroundColor = Color.FromArgb(100, 240, 4, 30),
+                BorderColor = Color.FromArgb(255, 255, 4, 25),
+                BorderWidth = 1,
+            },
+        };
+
     }
 
     public DelegateCommand CreateChartCommand { get; private set; }
@@ -84,6 +106,12 @@ public class JudgeResultViewModel : NotificationObject
         set { SetProperty(ref this._chartItems2, value); }
     }
 
+    private IEnumerable<BarChartItem>? _chartItems3;
+    public IEnumerable<BarChartItem>? ChartItems3
+    {
+        get => this._chartItems3;
+        set { SetProperty(ref this._chartItems3, value); }
+    }
 
     private Random _rand = new Random();
 }
