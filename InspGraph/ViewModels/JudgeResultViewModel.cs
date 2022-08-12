@@ -54,15 +54,15 @@ public class JudgeResultViewModel : NotificationObject
             new BarChartItem(OkData)
             {
                 Label = "OKêî",
-                BackgroundColor = Color.FromArgb(100, 20, 40, 200),
-                BorderColor = Color.FromArgb(255, 10, 10, 255),
+                BackgroundColor = Color.FromArgb(100, 94, 142, 134),
+                BorderColor = Color.FromArgb(255, 94, 142, 134),
                 BorderWidth = 1,
             },
             new BarChartItem(NgData)
             {
                 Label = "NGêî",
-                BackgroundColor = Color.FromArgb(100, 240, 4, 30),
-                BorderColor = Color.FromArgb(255, 255, 4, 25),
+                BackgroundColor = Color.FromArgb(100, 186, 64, 48),
+                BorderColor = Color.FromArgb(255, 186, 64, 48),
                 BorderWidth = 1,
             },
         };
@@ -80,31 +80,31 @@ public class JudgeResultViewModel : NotificationObject
             new BarChartItem(NoLabel)
             {
                 Label = "ÉâÉxÉãñ≥Çµ",
-                BorderColor = Color.FromArgb(200, 30, 10, 233),
+                BorderColor = Color.FromArgb(200, 94, 142, 134),
                 BorderWidth = 1,
             },
             new BarChartItem(Mekure)
             {
                 Label = "ÇﬂÇ≠ÇÍ",
-                BorderColor = Color.FromArgb(200, 25, 139, 25),
+                BorderColor = Color.FromArgb(200, 186, 64, 48),
                 BorderWidth = 1,
             },
             new BarChartItem(Shiwa)
             {
                 Label = "ÇµÇÌ",
-                BorderColor = Color.FromArgb(200, 200, 10, 20),
+                BorderColor = Color.FromArgb(200, 226, 221, 202),
                 BorderWidth = 1,
             },
             new BarChartItem(Yabure)
             {
                 Label = "Ç‚Ç‘ÇÍ",
-                BorderColor = Color.FromArgb(200, 239, 200, 25),
+                BorderColor = Color.FromArgb(200, 44, 46, 60),
                 BorderWidth = 1,
             },
         };
 
         int[] part = { 53, 23, 24, 2};
-        string[] partColor = { "\"rgba(200, 30, 44, 0.5)\"", "\"rgba(20, 230, 10, 0.5)\"", "\"rgba(40, 60, 244, 0.5)\"", "\"rgba(20, 234, 244, 0.5)\"" };
+        string[] partColor = { "\"rgba(94, 142, 134, 0.5)\"", "\"rgba(186, 64, 48, 0.5)\"", "\"rgba(226, 221, 202, 0.5)\"", "\"rgba(44, 46, 60, 0.5)\"" };
         this.ChartItems4 = new PieChartItem[]
         {
             new PieChartItem(part, partColor)
