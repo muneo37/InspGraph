@@ -67,21 +67,38 @@ public class JudgeResultViewModel : NotificationObject
             },
         };
 
-
+        int[] NoLabel = { 53, 23, 54, 42, 44, 64, 54,
+                         45, 67, 58, 63, 75, 77, 35};
+        int[] Mekure = { 30, 54, 45, 36, 44, 32, 56,
+                         37, 34, 38, 43, 26, 27, 45}; 
+        int[] Shiwa = { 13, 3, 5, 5, 4, 9, 6,
+                         5, 7, 8, 13, 7, 7, 5};
+        int[] Yabure = { 3, 4, 4, 6, 6, 2, 1,
+                         7, 6, 8, 1, 7, 7, 8};
         this.ChartItems3 = new BarChartItem[]
         {
-            new BarChartItem(OkData)
+            new BarChartItem(NoLabel)
             {
-                Label = "OKêî",
-                BackgroundColor = Color.FromArgb(100, 20, 40, 200),
-                BorderColor = Color.FromArgb(255, 10, 10, 255),
+                Label = "ÉâÉxÉãñ≥Çµ",
+                BorderColor = Color.FromArgb(200, 30, 10, 233),
                 BorderWidth = 1,
             },
-            new BarChartItem(NgData)
+            new BarChartItem(Mekure)
             {
-                Label = "NGêî",
-                BackgroundColor = Color.FromArgb(100, 240, 4, 30),
-                BorderColor = Color.FromArgb(255, 255, 4, 25),
+                Label = "ÇﬂÇ≠ÇÍ",
+                BorderColor = Color.FromArgb(200, 25, 139, 25),
+                BorderWidth = 1,
+            },
+            new BarChartItem(Shiwa)
+            {
+                Label = "ÇµÇÌ",
+                BorderColor = Color.FromArgb(200, 200, 10, 20),
+                BorderWidth = 1,
+            },
+            new BarChartItem(Yabure)
+            {
+                Label = "Ç‚Ç‘ÇÍ",
+                BorderColor = Color.FromArgb(200, 239, 200, 25),
                 BorderWidth = 1,
             },
         };
