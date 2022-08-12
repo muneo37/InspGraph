@@ -103,7 +103,20 @@ public class JudgeResultViewModel : NotificationObject
             },
         };
 
-    }
+        int[] part = { 53, 23, 24, 2};
+        string[] partColor = { "\"rgba(200, 30, 44, 0.5)\"", "\"rgba(20, 230, 10, 0.5)\"", "\"rgba(40, 60, 244, 0.5)\"", "\"rgba(20, 234, 244, 0.5)\"" };
+        this.ChartItems4 = new PieChartItem[]
+        {
+            new PieChartItem(part, partColor)
+            {
+                Label = "ƒ‰ƒxƒ‹–³‚µ",
+                BorderColor = Color.FromArgb(200, 30, 10, 233),
+                BorderWidth = 1,
+            },
+        };
+
+}
+
 
     public DelegateCommand CreateChartCommand { get; private set; }
 
@@ -128,6 +141,13 @@ public class JudgeResultViewModel : NotificationObject
     {
         get => this._chartItems3;
         set { SetProperty(ref this._chartItems3, value); }
+    }
+
+    private IEnumerable<PieChartItem>? _chartItems4;
+    public IEnumerable<PieChartItem>? ChartItems4
+    {
+        get => this._chartItems4;
+        set { SetProperty(ref this._chartItems4, value); }
     }
 
     private Random _rand = new Random();
