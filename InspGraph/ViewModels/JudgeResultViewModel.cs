@@ -115,7 +115,17 @@ public class JudgeResultViewModel : NotificationObject
             },
         };
 
-}
+        int[] No1 = { 53, 23, 54, 42, 44};
+        this.ChartItems5 = new RadarChartItem[]
+        {
+            new RadarChartItem(No1)
+            {
+                Label = "ХiОн1",
+                BorderColor = Color.FromArgb(200, 94, 142, 134),
+                BorderWidth = 1,
+            },
+        };
+    }
 
 
     public DelegateCommand CreateChartCommand { get; private set; }
@@ -150,5 +160,11 @@ public class JudgeResultViewModel : NotificationObject
         set { SetProperty(ref this._chartItems4, value); }
     }
 
+    private IEnumerable<RadarChartItem>? _chartItems5;
+    public IEnumerable<RadarChartItem>? ChartItems5
+    {
+        get => this._chartItems5;
+        set { SetProperty(ref this._chartItems5, value); }
+    }
     private Random _rand = new Random();
 }
