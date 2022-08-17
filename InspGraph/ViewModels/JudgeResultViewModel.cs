@@ -116,12 +116,26 @@ public class JudgeResultViewModel : NotificationObject
         };
 
         int[] No1 = { 53, 23, 54, 42, 44};
+        int[] No2 = { 11, 80, 11, 82, 92 };
+        int[] No3 = { 44, 5, 73, 78, 27 };
         this.ChartItems5 = new RadarChartItem[]
         {
             new RadarChartItem(No1)
             {
                 Label = "ХiОн1",
                 BorderColor = Color.FromArgb(200, 94, 142, 134),
+                BorderWidth = 1,
+            },
+            new RadarChartItem(No2)
+            {
+                Label = "ХiОн2",
+                BorderColor = Color.FromArgb(200, 186, 64, 48),
+                BorderWidth = 1,
+            },
+            new RadarChartItem(No3)
+            {
+                Label = "ХiОн3",
+                BorderColor = Color.FromArgb(200, 44, 46, 60),
                 BorderWidth = 1,
             },
         };

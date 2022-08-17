@@ -1,7 +1,8 @@
 ﻿@inject IJSRuntime JS;
 @using System.Text;
-
-<canvas id="@Id"></canvas>
+<div style="width:300px">
+    <canvas id="@Id"></canvas>
+</div>
 
 
 @code {
@@ -43,60 +44,7 @@
         jsonBuilder.AppendLine("       " + string.Join(", \r\n       ", this.ItemsSource.Select(x => x.ToString())));    
         jsonBuilder.AppendLine("]");
         jsonBuilder.AppendLine("},");
-        jsonBuilder.AppendLine("\"options\": {\"scales\": {\"r\": {\"min\": 0, \"max\": 60,\"backgroundColor\": \"rgba(255, 144, 20, 0.5)\",\"grid\": {\"color\": \"rgba(255, 144, 20, 0.5)\", }, \"angleLines\": {\"color\": \"rgba(255, 144, 20, 0.5)\",}, \"pointLabels\": { \"color\": \"rgba(255, 144, 20, 0.5)\", \"backdropColor\": \"rgba(255, 144, 20, 0.5)\", \"backdropPadding\": 5, \"padding\": 20,}}}}}");
-
-
-        //jsonBuilder.AppendLine("{");
-        //jsonBuilder.AppendLine("\"type\": 'bar',");
-        //jsonBuilder.AppendLine("\"data\": {");
-        //jsonBuilder.AppendLine("\"labels\": ['Cost', 'Delivery', 'Quality', 'Process', 'Customer'],");
-        //jsonBuilder.AppendLine("\"datasets\": [{");
-        //jsonBuilder.AppendLine("\"label\": 'Product',");
-        //jsonBuilder.AppendLine("\"data\": [30, 40, 30, 40, 50],");
-        //jsonBuilder.AppendLine("\"borderColor\": 'green',");
-        //jsonBuilder.AppendLine("\"borderWidth\": 2,");
-        //jsonBuilder.AppendLine("}],");
-        //jsonBuilder.AppendLine("},");
-
-
-
-        //jsonBuilder.AppendLine("\"options\": {");
-        //jsonBuilder.AppendLine("\"scales\": {");
-        //jsonBuilder.AppendLine("\"r\": {");
-        //jsonBuilder.AppendLine("\"min\": 0,");
-        //jsonBuilder.AppendLine("\"max\": 60,");
-        //jsonBuilder.AppendLine("\"backgroundColor\": 'lightyellow',");
-        //jsonBuilder.AppendLine("\"grid\": {");
-        //jsonBuilder.AppendLine("\"color\": 'lightseagreen',");
-        //jsonBuilder.AppendLine("},");
-        //jsonBuilder.AppendLine("\"angleLines\": {");
-        //jsonBuilder.AppendLine("\"color\": 'brown',");
-        //jsonBuilder.AppendLine("},");
-        //jsonBuilder.AppendLine("\"pointLabels\": {");
-        //jsonBuilder.AppendLine("\"color\": 'blue',");
-        //jsonBuilder.AppendLine("\"backdropColor\": '#ddf',");
-        //jsonBuilder.AppendLine("\"backdropPadding\": 5,");
-        //jsonBuilder.AppendLine("\"padding\": 20,");
-        //jsonBuilder.AppendLine("}}}}}");
-
-        //jsonBuilder.AppendLine("\"options\": {");
-        //jsonBuilder.AppendLine("\"elements\": {");
-        //jsonBuilder.AppendLine("\"line\": {");
-        //jsonBuilder.AppendLine("\"borderWidth\": 3,");
-        //jsonBuilder.AppendLine("}}}}");
-
-
-        //jsonBuilder.AppendLine("{");
-        //jsonBuilder.AppendLine("\"type\": \"bar\",");
-        //jsonBuilder.AppendLine("\"data\": {");
-        //jsonBuilder.AppendLine("\"labels\": [");
-        //jsonBuilder.AppendLine("\"8/9\", \"8/10\", \"8/11\", \"8/12\", \"8/13\", \"8/14\",\"8/15\",\"8/16\",\"8/17\",\"8/18\",\"8/19\",\"8/20\",\"8/21\",\"8/22\"");
-        //jsonBuilder.AppendLine("],");
-        //jsonBuilder.AppendLine("\"datasets\":[");
-        //jsonBuilder.AppendLine("       " + string.Join(", \r\n       ", this.ItemsSource.Select(x => x.ToString())));    
-        //jsonBuilder.AppendLine("]");
-        //jsonBuilder.AppendLine("},");
-        //jsonBuilder.AppendLine("\"options\": {\"scales\": {\"yAxes\": [{\"ticks\": {\"beginAtZero\": true}}]}}}");
+        jsonBuilder.AppendLine("\"options\": {}}");
 
 
         var json = jsonBuilder.ToString();
