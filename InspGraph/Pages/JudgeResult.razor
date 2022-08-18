@@ -13,20 +13,18 @@
 
 <div class="row my-6">
     <div class="col">
-@*        <h3>OK/NG</h3>
-        <ScatterChart id="chart1" ItemsSource="@DataContext.ChartItems" />
-*@        <h3>OK/NG</h3>
-        <BarChart id="chart2" ItemsSource="@DataContext.ChartItems2" />
+        <h3>OK/NG</h3>
+        <Chart id="chart1" ItemsSource="@DataContext.ChartItems" />
         <h3>欠陥別</h3>
-        <LineChart id="chart3" ItemsSource="@DataContext.ChartItems3" />
+        <Chart id="chart2" ItemsSource="@DataContext.ChartItems2" />
         <div id="primaryEditorContainer">
             <div style="grid-column:1;">
                 <h3>欠陥部位</h3>
-                <PieChart id="chart4" ItemsSource="@DataContext.ChartItems4" />
+                <Chart id="chart3" ItemsSource="@DataContext.ChartItems3" />
             </div>
             <div style="grid-column:2;">
                 <h3>品種別</h3>
-                <RadarChart id="chart5" ItemsSource="@DataContext.ChartItems5" />
+                <Chart id="chart4" ItemsSource="@DataContext.ChartItems4" />
             </div>
         </div>
     </div>

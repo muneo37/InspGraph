@@ -1,14 +1,14 @@
 ﻿namespace InspGraph
 { 
-    public class BarChartItem : ChartItem
+    public class LineChartItem : ChartItem
     {
-        public BarChartItem(int[] data)
+        public LineChartItem(int[] data)
         {
             if (data is null)
                 throw new ArgumentNullException("data");
 
             this.Data = data;
-            this.Type = "bar";
+            this.Type = "line";
         }
 
         public int[] Data { get; set; }

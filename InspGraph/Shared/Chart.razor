@@ -1,0 +1,50 @@
+﻿@inject IJSRuntime JS;
+@using System.Text;
+
+<canvas id="@Id"></canvas>
+
+
+@code {
+    [Parameter]
+    public string Id { get; set; } = "myChart";
+
+    [Parameter]
+    public IEnumerable<ChartItem>? ItemsSource { get; set; }
+
+    private IEnumerable<ChartItem>? _itemsSourceCore;
+    private IEnumerable<ChartItem>? ItemsSourceCore
+    {
+        get => this._itemsSourceCore;
+        set
+        {
+            if (this._itemsSourceCore != value)
+            {
+                this._itemsSourceCore = value;
+                UpdateChart();
+            }
+        }
+    }
+
+    protected override void OnParametersSet()
+    {
+        this.ItemsSourceCore = this.ItemsSource;
+    }
+
+    private void UpdateChart()
+    {
+        var jsonBuilder = new StringBuilder();
+        jsonBuilder.AppendLine("{");
+        jsonBuilder.AppendLine($"\"type\": \"{this.ItemsSource.ElementAt(0).Type}\",");
+        jsonBuilder.AppendLine("\"data\": {");
+        jsonBuilder.AppendLine($"\"labels\": [{string.Join(", ", this.ItemsSource.ElementAt(0).Labels)}],");
+        jsonBuilder.AppendLine("\"datasets\":[");
+        jsonBuilder.AppendLine("       " + string.Join(", \r\n       ", this.ItemsSource.Select(x => x.ToString())));    
+        jsonBuilder.AppendLine("]");
+        jsonBuilder.AppendLine("},");
+        jsonBuilder.AppendLine("\"options\": {}}");
+
+        var json = jsonBuilder.ToString();
+
+        JS.InvokeVoidAsync("renderChart", this.Id, json);
+    }
+}

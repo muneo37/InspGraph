@@ -8,6 +8,8 @@
                 throw new ArgumentNullException("data");
 
             this.Data = data;
+            this.Type = "radar";
+
         }
 
         public int[] Data { get; private set; }

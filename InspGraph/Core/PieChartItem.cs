@@ -11,6 +11,8 @@ namespace InspGraph
 
             this.Data = data;
             this.BackgroundColors = backgroundColors;
+            this.Type = "pie";
+
         }
 
         public int[] Data { get; set; }
