@@ -7,6 +7,7 @@ public class JudgeResultViewModel : NotificationObject
     public JudgeResultViewModel()
     {
         this.CreateChartCommand = new DelegateCommand(_ => CreateChart());
+        this.GraphKind = KindSelectList.Last();
     }
 
     private void CreateChart()
@@ -127,7 +128,18 @@ public class JudgeResultViewModel : NotificationObject
 
     public DelegateCommand CreateChartCommand { get; private set; }
 
-    public string PageTitle { get; } = "Blazor De NWF";
+    private string _graphKind = "";
+    public string GraphKind
+    {
+        get => this._graphKind;
+        set { SetProperty(ref this._graphKind, value); }
+    }
+
+    private List<string> _kindSelectList = new List<string>() { "bar", "line", "pie", "radar" };
+    public List<string> KindSelectList
+    {
+        get => this._kindSelectList;
+    }
 
     private IEnumerable<ChartItem>? _chartItems;
     public IEnumerable<ChartItem>? ChartItems

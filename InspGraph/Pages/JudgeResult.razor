@@ -11,24 +11,42 @@
 
 <h2>2022年8月</h2>
 
-<div class="row my-6">
-    <div class="col">
-        <h3>OK/NG</h3>
-        <Chart id="chart1" ItemsSource="@DataContext.ChartItems" />
-        <h3>欠陥別</h3>
-        <Chart id="chart2" ItemsSource="@DataContext.ChartItems2" />
-        <div id="primaryEditorContainer">
-            <div style="grid-column:1;">
-                <h3>欠陥部位</h3>
+<div class=" container">
+    <div class="row">
+        <div class="col-12">
+            <h3>OK/NG</h3>
+            <Chart id="chart1" ItemsSource="@DataContext.ChartItems" />
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-12">
+            <h3>OK/NG</h3>
+            <Chart id="chart2" ItemsSource="@DataContext.ChartItems2" />
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-6">
+            <h3>欠陥部位</h3>
                 <Chart id="chart3" ItemsSource="@DataContext.ChartItems3" />
-            </div>
-            <div style="grid-column:2;">
-                <h3>品種別</h3>
-                <Chart id="chart4" ItemsSource="@DataContext.ChartItems4" />
-            </div>
+        </div>
+        <div class="col-6">
+            <h3>品種別</h3>
+              <Chart id="chart4" ItemsSource="@DataContext.ChartItems4" />
+        </div>
+        <div class="row">
+            <EditForm Model="@DataContext">
+                <InputSelect @bind-Value="DataContext.GraphKind">
+                    @foreach(var kind in DataContext.KindSelectList)
+                    {
+                        <option>@kind</option>
+                    }
+                </InputSelect>
+            </EditForm>
         </div>
     </div>
 </div>
+
+
 
 <style>
     #primaryEditorContainer {
@@ -43,4 +61,5 @@
 </style>
 
 @code {
+    public int test { get; set; } = 0;
 }
