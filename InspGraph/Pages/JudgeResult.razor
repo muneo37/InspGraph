@@ -16,6 +16,7 @@
     <div class="row">
         <div class="col-12">
             <h3>OK/NG統計</h3>
+            <p>OK数とNG数の統計を2週間分表示しています。</p>
             <Chart id="chart1" ItemsSource="@DataContext.ChartItems" />
         </div>
     </div>
@@ -25,6 +26,7 @@
     <div class="row">
         <div class="col-12">
             <h3>欠陥種類別統計</h3>
+            <p>欠陥別にNG数の推移を2週間分表示しています。</p>
             <Chart id="chart2" ItemsSource="@DataContext.ChartItems2" />
         </div>
     </div>
@@ -34,11 +36,13 @@
     <div class="row">
         <div class="col-6">
             <h3>欠陥部位分布</h3>
-                <Chart id="chart3" ItemsSource="@DataContext.ChartItems3" />
+            <p>欠陥の発生箇所の分布表示しています。</p>
+            <Chart id="chart3" ItemsSource="@DataContext.ChartItems3" />
         </div>
         <div class="col-6">
             <h3>品種別分布</h3>
-              <Chart id="chart4" ItemsSource="@DataContext.ChartItems4" />
+            <p>品種別の欠陥種類の分布を表示しています。</p>
+            <Chart id="chart4" ItemsSource="@DataContext.ChartItems4" />
         </div>
     </div>
     <br />
