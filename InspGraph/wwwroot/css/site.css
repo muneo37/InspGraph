@@ -62,3 +62,27 @@ a, .btn-link {
     .blazor-error-boundary::after {
         content: "An error has occurred."
     }
+
+pre {
+    background-color: rgba(223, 230, 204, .85);
+    counter-reset: rowNumber;
+}
+
+    pre span.row-number {
+        counter-increment: rowNumber;
+    }
+
+        pre span.row-number::before {
+            content: counter(rowNumber);
+            /* ˆÈ‰º­‚µ‚¾‚¯‘•ü */
+            width: 2rem;
+            display: inline-block;
+            color: #aaa;
+        }
+
+.card-code {
+    background-color: rgba(0, 122, 204, .85);
+    -webkit-backdrop-filter: saturate(180%) blur(20px);
+    backdrop-filter: saturate(180%) blur(20px);
+    color: #fff;
+}
