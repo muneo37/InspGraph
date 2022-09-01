@@ -1,7 +1,51 @@
 ﻿@page "/Introduction"
 
-<h3>introduction</h3>
+<h1>Chart.js導入</h1>
+<p>Chart.jsのグラフを表示するまでの手順を紹介します。</p>
+<p/>
 
-@code {
+<h3>MVVMなページを用意します。</h3>
+<p>※ページの追加・表示方法は割愛します。</p>
+<p>ソリューション内にCoreフォルダを作成し、ViewContentBase.cs、DelegateCommand.cs、NotificationObject.csファイルを追加します。</p>
+<img src="img/ChartIntro/03.jpg" />
+<p/>
 
-}
+<p>ViewModelsフォルダを作成し、ChartViewModel.csクラスを追加します。※名称はPageに合わせてくださいな</p>
+<img src="img/ChartIntro/04.jpg" />
+<p/>
+
+<p>ChartViewModelクラスをNotiticationObjectクラスのサブクラスとします。</p>
+<img src="img/ChartIntro/05.jpg" />
+<p/>
+
+<p>表示するページに下記の一行を追加します。</p>
+<img src="img/ChartIntro/06.jpg" />
+<p>以上でMVVM化完了です。</p>
+<br/>
+<br/>
+<br/>
+
+<h3>ライブラリファイル追加します。</h3>
+<p>wwwroot内にLibフォルダを作成し、Chart.jsのファイルとBootstrapのファイルを追加します。※BootstrapはChart.jsでは必要ないです。後述のRefreshボタンのため。</p>
+
+<img src="img/ChartIntro/01.jpg" />
+<p/>
+<br/>
+<br/>
+<br/>
+
+
+<h3>_Layout.cshtmlにranderChart関数を用意します。</h3>
+
+<img src="img/ChartIntro/02.jpg" />
+<br/>
+<br/>
+<br/>
+<br/>
+
+<h3>ChartItemクラスと仲間たちをCoreフォルダに追加する。</h3>
+<img src="img/ChartIntro/07.jpg" />
+<br/>
+<br/>
+<br/>
+<br/>

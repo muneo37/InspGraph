@@ -1,30 +1,29 @@
-﻿namespace InspGraph
-{ 
-    public class LineChartItem : ChartItem
+﻿
+public class LineChartItem : ChartItem
+{
+    public LineChartItem(int[] data)
     {
-        public LineChartItem(int[] data)
-        {
-            if (data is null)
-                throw new ArgumentNullException("data");
+        if (data is null)
+            throw new ArgumentNullException("data");
 
-            this.Data = data;
-            this.Type = "line";
-        }
+        this.Data = data;
+        this.Type = "line";
+    }
 
-        public int[] Data { get; set; }
+    public int[] Data { get; set; }
 
-        public override string ToString()
-        {
-            return "{" +
-                String.Join(", ", new string[]
-                    {
+    public override string ToString()
+    {
+        return "{" +
+            String.Join(", ", new string[]
+                {
                         $"\"label\": \"{this.Label}\"",
                         $"\"data\": [{string.Join(", ", this.Data)}]",
                         $"\"backgroundColor\": \"rgba({this.BackgroundColor.R}, {this.BackgroundColor.G}, {this.BackgroundColor.B}, {this.BackgroundColor.A / 255.0})\"",
                         $"\"borderColor\": \"rgba({this.BorderColor.R}, {this.BorderColor.G}, {this.BorderColor.B}, {this.BorderColor.A / 255.0})\"",
                         $"\"borderWidth\": {this.BorderWidth}",
-                    })
-                + "}";
-        }
+                })
+            + "}";
     }
 }
+
