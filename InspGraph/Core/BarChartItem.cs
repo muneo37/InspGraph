@@ -8,6 +8,8 @@ public class BarChartItem : ChartItem
 
         this.Data = data;
         this.Type = "bar";
+        this.Options = "\"options\": {\"responsive\": \"true\", \"maintainAspectRatio\": \"false\"}";
+
     }
 
     public int[] Data { get; set; }
