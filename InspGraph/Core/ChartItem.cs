@@ -19,6 +19,8 @@ public abstract class ChartItem
 
     public double BorderWidth { get; set; }
 
+    public string Options { get; set; } = "\"options\": {}";
+
     public abstract override string ToString();
 
 }

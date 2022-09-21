@@ -8,6 +8,8 @@ public class LineChartItem : ChartItem
 
         this.Data = data;
         this.Type = "line";
+        this.Options = "\"options\": { \"legend\": {\"position\": \"bottom\"}}";
+
     }
 
     public int[] Data { get; set; }

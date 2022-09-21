@@ -41,7 +41,8 @@
         jsonBuilder.AppendLine("       " + string.Join(", \r\n       ", this.ItemsSource.Select(x => x.ToString())));    
         jsonBuilder.AppendLine("]");
         jsonBuilder.AppendLine("},");
-        jsonBuilder.AppendLine("\"options\": {}}");
+        jsonBuilder.AppendLine(this.ItemsSource.ElementAt(0).Options);
+        jsonBuilder.AppendLine("}");
 
         var json = jsonBuilder.ToString();
 
