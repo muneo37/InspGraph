@@ -15,36 +15,24 @@
 <div class=" container">
     <div class="row">
         <div class="col-6">
-            <div class="shadow" style="width:40rem">
-                <div class="card">
-                    <h5 class="card-title">検査統計</h5>
-                    <h6 class="card-subtitle">OK数とNG数の統計を2週間分表示しています。</h6>
-                    <Chart id="chart1" ItemsSource="@DataContext.ChartItems" />
-                </div>
+            <div class="card">
+                <h5 class="card-title">検査統計</h5>
+                <h6 class="card-subtitle">OK数とNG数の統計を2週間分表示しています。</h6>
+                <Chart id="chart1" ItemsSource="@DataContext.ChartItems" />
             </div>
         </div>
         <div class="col-6">
             <div class="row">
-                <div class="col-6">
-                    <h3>欠陥部位分布</h3>
-                    <p>欠陥の発生箇所の分布表示しています。</p>
+                <div class="card">
+                    <h5 class="card-title">検査部位分布</h5>
+                    <h6 class="card-subtitle">欠陥の発生個所の分布を表示しています。</h6>
                     <Chart id="chart3" ItemsSource="@DataContext.ChartItems3" />
                 </div>
-@*                <div class="col-6">
-                    <h3>品種別分布</h3>
-                    <p>品種別の欠陥種類の分布を表示しています。</p>
-                    <Chart id="chart4" ItemsSource="@DataContext.ChartItems4" />
-                </div>*@
             </div>
             <div class="row">
-                <div class="col-6">
-                    <h3>欠陥部位分布</h3>
-                    <p>欠陥の発生箇所の分布表示しています。</p>
-                    <Chart id="chart3" ItemsSource="@DataContext.ChartItems3" />
-                </div>
-                <div class="col-6">
-                    <h3>品種別分布</h3>
-                    <p>品種別の欠陥種類の分布を表示しています。</p>
+                <div class="card">
+                    <div class="card-title">品種別分布</div>
+                    <div class="card-subtitle">品種別の欠陥種類分布を表示しています。</div>
                     <Chart id="chart4" ItemsSource="@DataContext.ChartItems4" />
                 </div>
             </div>

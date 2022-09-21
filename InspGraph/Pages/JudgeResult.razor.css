@@ -1,6 +1,16 @@
 ﻿body {
 }
 
-card{
-    padding:30px;
+.card {
+    padding: 10px;
+    box-shadow: 0 2.5rem 2rem -2rem hsl(200 50% 20% / 40%);
+    background: hsl(0 0% 100%);
+    color: hsl(200 50% 20%);
+    line-height: 1.5;
+    font-size: 1.5rem;
+    font-weight: 300;
+    display: flex;
+    padding: 3ch;
+    border-radius: 2ch;
+    border: 1px solid hsl(0 0% 83%);
 }
