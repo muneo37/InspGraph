@@ -12,7 +12,7 @@ public class PieChartItem : ChartItem
         this.Data = data;
         this.BackgroundColors = backgroundColors;
         this.Type = "pie";
-        this.Options = "\"options\": {\"plugins\": { \"legend\": {\"display\": \"false\", \"position\": \"left\"}}}";
+        this.Options = "\"options\": {\"plugins\": { \"legend\": false}}";
 
     }
 

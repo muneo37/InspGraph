@@ -8,6 +8,7 @@ public class RadarChartItem : ChartItem
 
         this.Data = data;
         this.Type = "radar";
+        this.Options = "\"options\": {\"plugins\": { \"legend\": false}}";
 
     }
 

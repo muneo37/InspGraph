@@ -12,12 +12,17 @@
     padding: 3ch;
     border-radius: 2ch;
     border: 1px solid hsl(0 0% 83%);
+    height: 500px;
+}
+
+.small{
+    height:200px;
 }
 
 .canvas-container {
     position: relative;
-    width: calc(100% - 40px);
-    height: 400px;
+    width: 600px;
+    height: 600%;
     overflow: hidden;
     margin: 20px;
 }
