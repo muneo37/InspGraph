@@ -4,6 +4,15 @@
 
 <h3>SampleGraph</h3>
 
+<div class="row">
+    <div class="col-2">
+        <InputButton Class="btn btn-primary" Command="@DataContext.CreateChartCommand">Refresh</InputButton>
+    </div>
+    <div class="full-chart" style="position:relative; width:100vw; height:500px;">
+        <Chart id="chart" ItemsSource="@DataContext.ChartItems"/>
+    </div>
+</div>
+
 @code {
 
 }

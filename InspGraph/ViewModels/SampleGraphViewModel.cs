@@ -16,32 +16,34 @@ namespace InspGraph.ViewModels
 
         public SampleGraphViewModel()
         {
-
+            this.CreateChartCommand = new DelegateCommand(_ => CreateChart());
         }
 
         private void CreateChart()
         {
             this.ChartItems = new ChartItem[]
-        {
-            new ChartItem(OkData)
             {
-                Labels = label,
-                Label = "OK数",
-                BackgroundColor = Color.FromArgb(100, 94, 142, 134),
-                BorderColor = Color.FromArgb(255, 94, 142, 134),
-                BorderWidth = 1,
-            },
+                new ChartItem(OkData)
+                {
+                    Labels = label,
+                    Label = "OK数",
+                    BackgroundColor = Color.FromArgb(100, 94, 142, 134),
+                    BorderColor = Color.FromArgb(255, 94, 142, 134),
+                    BorderWidth = 1,
+                },
 
-            new ChartItem(NgData)
-            {
-                Label = "NG数",
-                BackgroundColor = Color.FromArgb(100, 186, 64, 48),
-                BorderColor = Color.FromArgb(255, 186, 64, 48),
-                BorderWidth = 1,
-            },
+                new ChartItem(NgData)
+                {
+                    Label = "NG数",
+                    BackgroundColor = Color.FromArgb(100, 186, 64, 48),
+                    BorderColor = Color.FromArgb(255, 186, 64, 48),
+                    BorderWidth = 1,
+                },
 
-        };
+            };
         }
+
+        public DelegateCommand CreateChartCommand { get; private set; }
 
         private IEnumerable<ChartItem>? _chartItems;
         public IEnumerable<ChartItem>? ChartItems
