@@ -8,6 +8,7 @@ var builder = WebApplication.CreateBuilder(args);
 builder.Services.AddRazorPages();
 builder.Services.AddServerSideBlazor();
 builder.Services.AddScoped<JudgeResultViewModel>();
+builder.Services.AddScoped<SampleGraphViewModel>();
 
 var app = builder.Build();
 
