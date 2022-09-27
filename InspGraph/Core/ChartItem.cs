@@ -8,7 +8,6 @@ public class ChartItem
             throw new ArgumentNullException("data");
 
         this.Data = data;
-        this.Type = "bar";
         this.Options = "\"options\": {\"responsive\": true, \"maintainAspectRatio\": false}";
         Data = data;
     }

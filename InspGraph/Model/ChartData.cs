@@ -19,6 +19,7 @@ namespace InspGraph.Model
             {
                 new ChartItem(OkData)
                 {
+                    Type = "radar",
                     Labels = label,
                     Label = "OK数",
                     BackgroundColor = Color.FromArgb(100, 94, 142, 134),
