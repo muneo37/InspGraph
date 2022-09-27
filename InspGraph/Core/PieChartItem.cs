@@ -2,34 +2,34 @@
 
 
 
-public class PieChartItem : ChartItem
+public class PieChartItem //: ChartItem
 {
-    public PieChartItem(int[] data, string[] backgroundColors)
-    {
-        if (data is null)
-            throw new ArgumentNullException("data");
+    //public PieChartItem(int[] data, string[] backgroundColors)
+    //{
+    //    if (data is null)
+    //        throw new ArgumentNullException("data");
 
-        this.Data = data;
-        this.BackgroundColors = backgroundColors;
-        this.Type = "pie";
-        this.Options = "\"options\": {\"plugins\": { \"legend\": false}}";
+    //    this.Data = data;
+    //    this.BackgroundColors = backgroundColors;
+    //    this.Type = "pie";
+    //    this.Options = "\"options\": {\"plugins\": { \"legend\": false}}";
 
-    }
+    //}
 
-    public int[] Data { get; set; }
-    public string[] BackgroundColors { get; set; }
+    //public int[] Data { get; set; }
+    //public string[] BackgroundColors { get; set; }
 
-    public override string ToString()
-    {
-        return "{" +
-            String.Join(", ", new string[]
-                {
-                        $"\"data\": [{string.Join(", ", this.Data)}]",
-                        $"\"backgroundColor\": [{string.Join(", ", this.BackgroundColors)}]",
-                        $"\"borderWidth\": {this.BorderWidth}",
-                })
-            + "}";
-    }
+    //public override string ToString()
+    //{
+    //    return "{" +
+    //        String.Join(", ", new string[]
+    //            {
+    //                    $"\"data\": [{string.Join(", ", this.Data)}]",
+    //                    $"\"backgroundColor\": [{string.Join(", ", this.BackgroundColors)}]",
+    //                    $"\"borderWidth\": {this.BorderWidth}",
+    //            })
+    //        + "}";
+    //}
 }
 
 

@@ -1,6 +1,6 @@
 ﻿
-public class LineChartItem : ChartItem
-{
+public class LineChartItem //: ChartItem
+{/*
     public LineChartItem(int[] data)
     {
         if (data is null)
@@ -26,6 +26,6 @@ public class LineChartItem : ChartItem
                         $"\"borderWidth\": {this.BorderWidth}",
                 })
             + "}";
-    }
+    }*/
 }
 
