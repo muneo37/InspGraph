@@ -6,12 +6,22 @@ namespace InspGraph.ViewModels
     public class SampleGraphViewModel : NotificationObject
     {
         #region フィールド
+        /// <summary>
+        /// チャートアイテム
+        /// </summary>
         private IEnumerable<ChartItem>? _chartItems;
+
+        /// <summary>
+        /// チャートデータ
+        /// </summary>
         private ChartData _chartData = new ChartData();
         #endregion
 
 
         #region プロパティ
+        /// <summary>
+        /// チャートアイテムプロパティ
+        /// </summary>
         public IEnumerable<ChartItem>? ChartItems
         {
             get => this._chartItems;
@@ -21,6 +31,9 @@ namespace InspGraph.ViewModels
 
 
         #region　コマンド
+        /// <summary>
+        /// チャート表示更新コマンド
+        /// </summary>
         public DelegateCommand CreateChartCommand { get; private set; }
         #endregion
 
