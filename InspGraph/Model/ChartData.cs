@@ -1,4 +1,5 @@
-﻿using System.Drawing;
+﻿using InspGraph.Operator;
+using System.Drawing;
 
 namespace InspGraph.Model
 {
@@ -16,6 +17,11 @@ namespace InspGraph.Model
 
         public ChartData(string type)
         {
+            IEnumerable<InspectResult> results = Select.InspectResultWhareId(3, 5);
+
+            int count = results.ElementAt(0).Count;
+
+
             _items = new ChartItem[]
             {
                 new ChartItem(OkData)
