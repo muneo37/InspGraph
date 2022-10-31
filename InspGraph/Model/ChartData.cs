@@ -13,13 +13,14 @@ namespace InspGraph.Model
         string[] label = { "\"5:00\"", "\"6:00\"", "\"8/12\"", "\"8/13\"", "\"8/14\"", "\"8/15\"", "\"8/16\"",
             "\"8/17\"", "\"8/18\"", "\"8/19\"", "\"8/20\"", "\"8/21\"", "\"8/22\"", "\"8/23\"" };
 
-        public ChartData()
+
+        public ChartData(string type)
         {
             _items = new ChartItem[]
             {
                 new ChartItem(OkData)
                 {
-                    Type = "radar",
+                    Type = type,
                     Labels = label,
                     Label = "OK数",
                     BackgroundColor = Color.FromArgb(100, 94, 142, 134),

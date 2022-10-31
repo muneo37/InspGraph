@@ -1,0 +1,24 @@
+﻿@page "/statistics"
+
+@inherits ViewComponentBase<StatisticsViewModel>
+
+<h3>Statistics</h3>
+
+<div class="container" style="padding:10px">
+    <div class="row">
+        <InputButton Class="btn btn-primary" Command="@DataContext.CreateChartCommand">Refresh</InputButton>
+    </div>
+
+    <div class="row">
+        <div class="col">
+            <div class="middle-chart card">
+                <Chart id="barchart" ItemsSource="@DataContext.JudgeBarChartItems" />
+            </div>
+        </div>
+    </div>
+</div>
+
+
+@code {
+
+}
