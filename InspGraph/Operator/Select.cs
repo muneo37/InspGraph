@@ -25,15 +25,15 @@ namespace InspGraph.Operator
             return _db.InspectResults;
         }
 
-        public static IEnumerable<InspectResult> InspectResultWhareId(int lowerValue,int upperValue)
+        public static IEnumerable<InspectResult> InspectResultWhereId(int lowerValue,int upperValue)
         {
             return _db.InspectResults.Where(i => (lowerValue <= i.InspectResultId) && (i.InspectResultId <= upperValue));
         }
 
-        public static InspectResult? InspectResultWhareId(int equalValue)
+        public static InspectResult? InspectResultWhereId(int equalValue)
         {
             try {
-                return InspectResultWhareId(equalValue, equalValue).First();
+                return InspectResultWhereId(equalValue, equalValue).First();
             } catch
             {
                 return null;
@@ -59,7 +59,7 @@ namespace InspGraph.Operator
         /// <param name="lowerValue">下限値</param>
         /// <param name="upperValue">上限値</param>
         /// <returns>Userリスト</returns>
-        public static IEnumerable<User> UserWhareId(int lowerValue, int upperValue)
+        public static IEnumerable<User> UserWhereId(int lowerValue, int upperValue)
         {
             return _db.Users.Where(u => (lowerValue <= u.UserId) && (u.UserId <= upperValue));
         }
@@ -69,11 +69,11 @@ namespace InspGraph.Operator
         /// </summary>
         /// <param name="equalValue">検索するId値</param>
         /// <returns>User</returns>
-        public static User? UserWhareId(int equalValue)
+        public static User? UserWhereId(int equalValue)
         {
             try
             {
-                return UserWhareId(equalValue, equalValue).First();
+                return UserWhereId(equalValue, equalValue).First();
             }
             catch
             {
@@ -86,7 +86,7 @@ namespace InspGraph.Operator
         /// </summary>
         /// <param name="name"></param>
         /// <returns></returns>
-        public static IEnumerable<User> UserWhareName(string name)
+        public static IEnumerable<User> UserWhereName(string name)
         {
             return _db.Users.Where(u => u.Name == name);
         }
@@ -97,7 +97,7 @@ namespace InspGraph.Operator
         /// <param name="lowerValue">下限値</param>
         /// <param name="upperValue">上限値</param>
         /// <returns>Userリスト</returns>
-        public static IEnumerable<User> UserWhareAuthority(int lowerValue, int upperValue)
+        public static IEnumerable<User> UserWhereAuthority(int lowerValue, int upperValue)
         {
             return _db.Users.Where(u => (lowerValue <= u.Authority) && (u.Authority <= upperValue));
         }
@@ -107,11 +107,11 @@ namespace InspGraph.Operator
         /// </summary>
         /// <param name="equalValue">検索する権限</param>
         /// <returns>User</returns>
-        public static User? UserWhareAuthority(int equalValue)
+        public static User? UserWhereAuthority(int equalValue)
         {
             try
             {
-                return UserWhareAuthority(equalValue, equalValue).First();
+                return UserWhereAuthority(equalValue, equalValue).First();
             }
             catch
             {
@@ -127,16 +127,16 @@ namespace InspGraph.Operator
             return _db.WorkDatas;
         }
 
-        public static IEnumerable<WorkData> WorkDataWhareId(int lowerValue, int upperValue)
+        public static IEnumerable<WorkData> WorkDataWhereId(int lowerValue, int upperValue)
         {
             return _db.WorkDatas.Where(w => (lowerValue <= w.WorkDataId) && (w.WorkDataId <= upperValue));
         }
 
-        public static WorkData? WorkDataWhareId(int equalValue)
+        public static WorkData? WorkDataWhereId(int equalValue)
         {
             try
             {
-                return WorkDataWhareId(equalValue, equalValue).First();
+                return WorkDataWhereId(equalValue, equalValue).First();
             }
             catch
             {

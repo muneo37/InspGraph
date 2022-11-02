@@ -37,6 +37,7 @@ namespace InspGraph.ViewModels
         public DelegateCommand CreateChartCommand { get; private set; }
         #endregion
 
+
         #region メソッド
         /// <summary>
         /// コンストラクタ
@@ -51,7 +52,18 @@ namespace InspGraph.ViewModels
         /// </summary>
         private void CreateChart()
         {
-            this.JudgeBarChartItems = this._judgeBarChartData.Items;
+            ChartConditions conditions = new ChartConditions()
+            {
+                ChartType = "bar",
+                Label = (int)LabelType.day,
+                Data = new List<int> { (int)DataType.okCount, (int)DataType.ngCount },
+                StartDate = DateTime.Parse("2020/01/01"),
+                EndDate = DateTime.Parse("2023/01/01"),
+                EnableCamera = new List<int> { 1, 3},
+                EnableProduct = new List<int> { 1, 2, 3},
+            };
+
+            this.JudgeBarChartItems = new ChartData(conditions).Items;
         }
         #endregion
 

@@ -15,9 +15,9 @@ namespace InspGraph.Model
             "\"8/17\"", "\"8/18\"", "\"8/19\"", "\"8/20\"", "\"8/21\"", "\"8/22\"", "\"8/23\"" };
 
 
-        public ChartData(string type)
+        public ChartData(ChartConditions condition)
         {
-            IEnumerable<InspectResult> results = Select.InspectResultWhareId(3, 5);
+            IEnumerable<InspectResult> results = Select.InspectResultWhereId(3, 5);
 
             int count = results.ElementAt(0).Count;
 
@@ -26,7 +26,7 @@ namespace InspGraph.Model
             {
                 new ChartItem(OkData)
                 {
-                    Type = type,
+                    Type = "bar",
                     Labels = label,
                     Label = "OK数",
                     BackgroundColor = Color.FromArgb(100, 94, 142, 134),
