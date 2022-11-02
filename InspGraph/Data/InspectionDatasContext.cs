@@ -12,11 +12,14 @@ namespace InspGraph
         public DbSet<WorkData> WorkDatas { get; set; } = null!;
         public DbSet<WorkDataChangeLog> WorkDataChangeLogs { get; set; } = null!;
 
+        public string DatabaseName { get; set; } = "InspectionDatasContext";
+
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
             if (!optionsBuilder.IsConfigured)
             {
-                optionsBuilder.UseNpgsql("Host=172.21.6.153; Port=5432; Database=InspectionDatas; Username=postgres; Password=asvt; Include Error Detail=true;");
+                var connectionString = "Host=172.21.6.153; Port=5432; Database=" + DatabaseName + "; Username=postgres; Password=asvt; Include Error Detail=true;";
+                optionsBuilder.UseNpgsql(connectionString);
             }
         }
 

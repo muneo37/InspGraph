@@ -1,11 +1,14 @@
 using InspGraph;
+using InspGraph.Model;
+using Microsoft.VisualStudio.TestTools.UnitTesting;
 
 namespace InspGraphTest
 {
     [TestClass]
-    public class チャートデータ構築に関するテスト
+    public class ChartData_チャートデータ構築に関するテスト
     {
         List<InspectResult> _results = new List<InspectResult>();
+        ChartConditions _conditions;
 
         [TestInitialize]
         public void チャートデータ構築に関するテスト初期化()
@@ -58,12 +61,17 @@ namespace InspGraphTest
             _results.Add(result2);
             _results.Add(result3);
 
+            //表示条件作成
+
         }
 
         [TestMethod]
         public void ラベルデータを構築するテスト()
         {
-
+            //日付ラベルデータ
+            var chartData = new ChartData(_conditions);
+            var privateObject = new PrivateObject(chartData);
+       
         }
     }
 }
