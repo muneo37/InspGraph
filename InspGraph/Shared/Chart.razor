@@ -32,6 +32,10 @@
 
     private void UpdateChart()
     {
+        if(this.ItemsSource == null)
+        {
+            return;
+        }
         var jsonBuilder = new StringBuilder();
         jsonBuilder.AppendLine("{");
         jsonBuilder.AppendLine($"\"type\": \"{this.ItemsSource.ElementAt(0).Type}\",");

@@ -10,10 +10,6 @@ namespace InspGraph.ViewModels
         /// </summary>
         private IEnumerable<ChartItem>? _judgeBarChartItems;
 
-        /// <summary>
-        /// チャートデータ
-        /// </summary>
-        private ChartData _judgeBarChartData = new ChartData("bar");
         #endregion
 
 
