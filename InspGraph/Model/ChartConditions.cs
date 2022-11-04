@@ -6,11 +6,11 @@
     public struct ChartConditions
     {
         public string ChartType { get; set; }
-        public int Label { get; set; }
-        public List<int> Data { get; set; }
+        public LabelType LabelT { get; set; }
+        public List<DataType> DataT { get; set; }
 
-        public DateTime? StartDate { get; set; }
-        public DateTime? EndDate { get; set; }
+        public DateTime StartDate { get; set; }
+        public DateTime EndDate { get; set; }
 
         public List<int> EnableCamera { get; set; }
         public List<int> EnableProduct { get; set; }
@@ -36,9 +36,5 @@
         okCount,
         ngCount,
         ngRatio,
-        ngCameraCount,
-        ngDefectCount,
-        ngCameraRatio,
-        ngDefectRatio,
     }
 }

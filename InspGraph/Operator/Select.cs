@@ -15,21 +15,49 @@ namespace InspGraph.Operator
     {
         private static InspectionDatasContext _db;
 
+        /// <summary>
+        /// コンストラクタ
+        /// </summary>
         static Select()
         {
             _db = new InspectionDatasContext();
         }
         #region InspectResult関係
+        /// <summary>
+        /// 検査結果を全て取得
+        /// </summary>
+        /// <returns>検査結果</returns>
         public static IEnumerable<InspectResult> InspectResultAll()
         {
             return _db.InspectResults;
         }
-
+        /// <summary>
+        /// ID条件から検査結果を取得します。
+        /// </summary>
+        /// <param name="lowerValue">下限値</param>
+        /// <param name="upperValue">上限値</param>
+        /// <returns>条件範囲内の検査結果データリスト</returns>
         public static IEnumerable<InspectResult> InspectResultWhereId(int lowerValue,int upperValue)
         {
             return _db.InspectResults.Where(i => (lowerValue <= i.InspectResultId) && (i.InspectResultId <= upperValue));
         }
 
+        /// <summary>
+        /// 検査時間条件から検査結果を取得します。
+        /// </summary>
+        /// <param name="startTime"></param>
+        /// <param name="endTime"></param>
+        /// <returns>指定範囲内の検査結果データリスト</returns>
+        public static IEnumerable<InspectResult> InspectResultWhereTime(DateTime startTime, DateTime endTime)
+        {
+            return _db.InspectResults.Where(i => (startTime <= i.InspTime) && (i.InspTime <= endTime));
+        }
+
+        /// <summary>
+        /// IDで検査結果を取得します。
+        /// </summary>
+        /// <param name="equalValue"></param>
+        /// <returns>指定IDの検査結果</returns>
         public static InspectResult? InspectResultWhereId(int equalValue)
         {
             try {

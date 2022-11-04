@@ -51,8 +51,8 @@ namespace InspGraph.ViewModels
             ChartConditions conditions = new ChartConditions()
             {
                 ChartType = "bar",
-                Label = (int)LabelType.day,
-                Data = new List<int> { (int)DataType.okCount, (int)DataType.ngCount },
+                LabelT = (int)LabelType.day,
+                DataT = new List<DataType> { DataType.okCount, DataType.ngCount },
                 StartDate = DateTime.Parse("2020/01/01"),
                 EndDate = DateTime.Parse("2023/01/01"),
                 EnableCamera = new List<int> { 1, 3},

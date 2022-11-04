@@ -15,7 +15,7 @@ namespace InspGraphTest
         {
             //\’zğŒİ’è
             _conditions.ChartType = "bar";
-            _conditions.Label = (int)LabelType.day;
+            _conditions.LabelT = (int)LabelType.day;
             _conditions.StartDate = DateTime.Parse("2022/11/01");
             _conditions.EndDate = DateTime.Parse("2022/11/14");
         }
