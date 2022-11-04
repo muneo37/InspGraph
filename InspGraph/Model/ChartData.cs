@@ -8,7 +8,6 @@ namespace InspGraph.Model
         #region フィールド
         ChartConditions _chartConditions;
         private IEnumerable<ChartItem>? _items;
-        IEnumerable<InspectResult> _inspectResults;
         #endregion
 
 
@@ -28,7 +27,6 @@ namespace InspGraph.Model
         public ChartData(ChartConditions condition)
         {
             _chartConditions = condition;
-            GetInspectResult();
 
             List<ChartItem> items = new List<ChartItem>();
             foreach(DataType dataT in _chartConditions.DataT)
@@ -46,14 +44,6 @@ namespace InspGraph.Model
             }
         }
 
-
-        /// <summary>
-        /// データベースから条件のデータを取得する。
-        /// </summary>
-        private void GetInspectResult()
-        {
-            _inspectResults = Select.InspectResultWhereTime(_chartConditions.StartDate, _chartConditions.EndDate.AddDays(1));
-        }
 
         /// <summary>
         /// ラベルデータ作成
