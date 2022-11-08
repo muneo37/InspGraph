@@ -7,12 +7,12 @@ namespace InspGraph.Model
     {
         #region フィールド
         ChartConditions _chartConditions;
-        private IEnumerable<ChartItem>? _items;
+        private List<ChartItem> _items = new List<ChartItem>();
         #endregion
 
 
         #region プロパティ
-        public IEnumerable<ChartItem>? Items
+        public List<ChartItem> Items
         {
             get => this._items;
         }
@@ -28,7 +28,6 @@ namespace InspGraph.Model
         {
             _chartConditions = condition;
 
-            List<ChartItem> items = new List<ChartItem>();
             foreach(DataType dataT in _chartConditions.DataT)
             {
                 ChartItem item = new ChartItem(CreateDataByDate(dataT).ToArray())
@@ -41,6 +40,7 @@ namespace InspGraph.Model
                     BorderColor = Color.FromArgb(255, 94, 142, 134),
                     BorderWidth = 1,
                 };
+                this.Items.Add(item);
             }
         }
 
@@ -77,10 +77,9 @@ namespace InspGraph.Model
             var data = new List<int>();
 
             DateTime indexDate = _chartConditions.StartDate;
-            while(indexDate > _chartConditions.EndDate)
+            while(indexDate < _chartConditions.EndDate)
             {
                 var dateInspResult = Select.InspectResultWhereTime(indexDate, indexDate.AddDays(1));
-
                 if(dateInspResult != null)
                 {
                     int count = 0;
@@ -97,7 +96,7 @@ namespace InspGraph.Model
                     }
                     data.Add(count);
                 }
-                indexDate.AddDays(1);
+                indexDate = indexDate.AddDays(1);
             }
 
             return data;

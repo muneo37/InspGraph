@@ -12,7 +12,7 @@ namespace InspGraph
         public DbSet<WorkData> WorkDatas { get; set; } = null!;
         public DbSet<WorkDataChangeLog> WorkDataChangeLogs { get; set; } = null!;
 
-        public string DatabaseName { get; set; } = "InspectionDatasContext";
+        public string DatabaseName { get; set; } = "InspectionDatas";
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
