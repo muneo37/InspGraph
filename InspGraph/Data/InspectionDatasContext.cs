@@ -18,7 +18,7 @@ namespace InspGraph
         {
             if (!optionsBuilder.IsConfigured)
             {
-                var connectionString = "Host=172.21.6.153; Port=5432; Database=" + DatabaseName + "; Username=postgres; Password=asvt; Include Error Detail=true;";
+                var connectionString = "Host=localhost; Port=5432; Database=" + DatabaseName + "; Username=postgres; Password=asvt; Include Error Detail=true;";
                 optionsBuilder.UseNpgsql(connectionString);
             }
         }
