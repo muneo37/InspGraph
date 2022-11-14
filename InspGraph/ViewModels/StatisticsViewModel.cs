@@ -53,8 +53,8 @@ namespace InspGraph.ViewModels
                 ChartType = "bar",
                 LabelT = (int)LabelType.day,
                 DataT = new List<DataType> { DataType.okCount, DataType.ngCount },
-                StartDate = DateTime.Parse("2020/01/01"),
-                EndDate = DateTime.Parse("2023/01/01"),
+                StartDate = DateTime.Parse("2022/11/08"),
+                EndDate = DateTime.Parse("2022/11/14"),
                 EnableCamera = new List<int> { 1, 3},
                 EnableProduct = new List<int> { 1, 2, 3},
             };

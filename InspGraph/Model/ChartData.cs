@@ -57,10 +57,10 @@ namespace InspGraph.Model
             {
                 case LabelType.day:
                     DateTime indexDate = _chartConditions.StartDate;
-                    while(indexDate > _chartConditions.EndDate)
+                    while(indexDate < _chartConditions.EndDate)
                     {
-                        labels.Add(indexDate.ToString("MM/dd"));
-                        indexDate.AddDays(1);
+                        labels.Add("\""+indexDate.ToString("MM/dd")+"\"");
+                        indexDate = indexDate.AddDays(1);
                     }
                     break;
             }
