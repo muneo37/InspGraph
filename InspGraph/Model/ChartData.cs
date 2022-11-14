@@ -6,7 +6,7 @@ namespace InspGraph.Model
     public class ChartData
     {
         #region フィールド
-        ChartConditions _chartConditions;
+        private ChartConditions _chartConditions;
         private List<ChartItem> _items = new List<ChartItem>();
         #endregion
 
@@ -28,14 +28,13 @@ namespace InspGraph.Model
         {
             _chartConditions = condition;
 
-            foreach(DataType dataT in _chartConditions.DataT)
+            foreach(string dataName in _chartConditions.DataNames)
             {
-                ChartItem item = new ChartItem(CreateDataByDate(dataT).ToArray())
+                ChartItem item = new ChartItem(CreateDataByDate(dataName).ToArray())
                 {
                     Type = _chartConditions.ChartType,
                     Labels = CreateLabels().ToArray(),
-                    //Todo
-                    Label = "とりあえず",
+                    Label = dataName,
                     BackgroundColor = Color.FromArgb(100, 94, 142, 134),
                     BorderColor = Color.FromArgb(255, 94, 142, 134),
                     BorderWidth = 1,
@@ -67,12 +66,13 @@ namespace InspGraph.Model
             return labels;
         }
 
+
         /// <summary>
         /// 日付ごとのアイテムデータ作成
         /// </summary>
-        /// <param name="dataNo">データの種類</param>
+        /// <param name="dataName">データの種類</param>
         /// <returns>アイテムデータリスト</returns>
-        private List<int> CreateDataByDate(DataType dataT)
+        private List<int> CreateDataByDate(string dataName)
         {
             var data = new List<int>();
 
@@ -83,13 +83,13 @@ namespace InspGraph.Model
                 if(dateInspResult != null)
                 {
                     int count = 0;
-                    switch(dataT)
+                    switch(dataName)
                     {
-                        case DataType.okCount:
+                        case "OK数":
                             Func<InspectResult, bool> isOk = x => x.IsOK;
                             count = Count<InspectResult>(dateInspResult, isOk);
                             break;
-                        case DataType.ngCount:
+                        case "NG数":
                             Func<InspectResult, bool> isNg = x => !x.IsOK;
                             count = Count<InspectResult>(dateInspResult, isNg);
                             break;

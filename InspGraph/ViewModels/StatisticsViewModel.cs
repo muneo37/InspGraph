@@ -52,7 +52,7 @@ namespace InspGraph.ViewModels
             {
                 ChartType = "bar",
                 LabelT = (int)LabelType.day,
-                DataT = new List<DataType> { DataType.okCount, DataType.ngCount },
+                DataNames = new List<string> { "OK数", "NG数" },
                 StartDate = DateTime.Parse("2022/11/08"),
                 EndDate = DateTime.Parse("2022/11/14"),
                 EnableCamera = new List<int> { 1, 3},

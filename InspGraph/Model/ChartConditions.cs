@@ -1,4 +1,6 @@
-﻿namespace InspGraph.Model
+﻿using System.Drawing;
+
+namespace InspGraph.Model
 {
     /// <summary>
     /// Chart構築条件構造体
@@ -7,7 +9,8 @@
     {
         public string ChartType { get; set; }
         public LabelType LabelT { get; set; }
-        public List<DataType> DataT { get; set; }
+        public List<string> DataNames { get; set; }
+        public List<Color> BackgroundColors { get; set; }
 
         public DateTime StartDate { get; set; }
         public DateTime EndDate { get; set; }
@@ -26,15 +29,5 @@
         camera,
         product,
         defect,
-    }
-
-    /// <summary>
-    /// グラフデータの種類
-    /// </summary>
-    public enum DataType
-    {
-        okCount,
-        ngCount,
-        ngRatio,
     }
 }
