@@ -9,17 +9,17 @@
     public string Id { get; set; } = "myChart";
 
     [Parameter]
-    public IEnumerable<ChartItem>? ItemsSource { get; set; }
+    public ChartContents? Contents{ get; set; }
 
-    private IEnumerable<ChartItem>? _itemsSourceCore;
-    private IEnumerable<ChartItem>? ItemsSourceCore
+    private ChartContents? _contentsCore;
+    private ChartContents? ContentsCore
     {
-        get => this._itemsSourceCore;
+        get => this._contentsCore;
         set
         {
-            if (this._itemsSourceCore != value)
+            if(this._contentsCore != value)
             {
-                this._itemsSourceCore = value;
+                this._contentsCore = value;
                 UpdateChart();
             }
         }
@@ -27,25 +27,26 @@
 
     protected override void OnParametersSet()
     {
-        this.ItemsSourceCore = this.ItemsSource;
+        this.ContentsCore= this.Contents;
     }
 
     private void UpdateChart()
     {
-        if(this.ItemsSource == null)
+        if(this.Contents == null || this.Contents.Items == null)
         {
             return;
         }
+
         var jsonBuilder = new StringBuilder();
         jsonBuilder.AppendLine("{");
-        jsonBuilder.AppendLine($"\"type\": \"{this.ItemsSource.ElementAt(0).Type}\",");
+        jsonBuilder.AppendLine($"\"type\": \"{this.Contents.Type}\",");
         jsonBuilder.AppendLine("\"data\": {");
-        jsonBuilder.AppendLine($"\"labels\": [{string.Join(", ", this.ItemsSource.ElementAt(0).Labels)}],");
+        jsonBuilder.AppendLine($"\"labels\": [{string.Join(", ", this.Contents.Labels)}],");
         jsonBuilder.AppendLine("\"datasets\":[");
-        jsonBuilder.AppendLine("       " + string.Join(", \r\n       ", this.ItemsSource.Select(x => x.ToString())));    
+        jsonBuilder.AppendLine("       " + string.Join(", \r\n       ", this.Contents.Items.Select(x => x.ToString())));    
         jsonBuilder.AppendLine("]");
         jsonBuilder.AppendLine("},");
-        jsonBuilder.AppendLine(this.ItemsSource.ElementAt(0).Options);
+        jsonBuilder.AppendLine(this.Contents.Options);
         jsonBuilder.AppendLine("}");
 
         var json = jsonBuilder.ToString();

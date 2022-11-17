@@ -5,10 +5,11 @@ namespace InspGraph.ViewModels
     public class StatisticsViewModel : NotificationObject
     {
         #region フィールド
+
         /// <summary>
-        /// チャートアイテム
+        /// チャート
         /// </summary>
-        private IEnumerable<ChartItem>? _judgeBarChartItems;
+        private ChartContents? _judgeBarChartContents;
 
         #endregion
 
@@ -16,12 +17,12 @@ namespace InspGraph.ViewModels
         #region プロパティ
 
         /// <summary>
-        /// チャートアイテムプロパティ
+        /// チャートプロパティ
         /// </summary>
-        public IEnumerable<ChartItem>? JudgeBarChartItems
+        public ChartContents? JudgeBarChartContents
         {
-            get => this._judgeBarChartItems;
-            set { SetProperty(ref this._judgeBarChartItems, value); }
+            get => this._judgeBarChartContents;
+            set { SetProperty(ref this._judgeBarChartContents, value); }
         }
         #endregion
 
@@ -50,16 +51,25 @@ namespace InspGraph.ViewModels
         {
             ChartConditions conditions = new ChartConditions()
             {
-                ChartType = "bar",
                 LabelT = (int)LabelType.day,
-                DataNames = new List<string> { "OK数", "NG数" },
+                ItemConditions = new List<ChartItemConditions> {
+                            new ChartItemConditions{DataName = "OK数", BackGroundColor = AppColors.AccentColorBlue},
+                            new ChartItemConditions{DataName = "NG数", BackGroundColor = AppColors.AccentColorPink},
+                            },
                 StartDate = DateTime.Parse("2022/11/08"),
                 EndDate = DateTime.Parse("2022/11/14"),
                 EnableCamera = new List<int> { 1, 3},
                 EnableProduct = new List<int> { 1, 2, 3},
             };
 
-            this.JudgeBarChartItems = new ChartData(conditions).Items;
+            var chartData = new ChartData(conditions);
+
+            this.JudgeBarChartContents = new ChartContents()
+            {
+                Type = "bar",
+                Labels = chartData.CreateLabels().ToArray(),
+                Items = chartData.Items,
+            };
         }
         #endregion
 

@@ -7,10 +7,8 @@ namespace InspGraph.Model
     /// </summary>
     public struct ChartConditions
     {
-        public string ChartType { get; set; }
         public LabelType LabelT { get; set; }
-        public List<string> DataNames { get; set; }
-        public List<Color> BackgroundColors { get; set; }
+        public List<ChartItemConditions> ItemConditions { get; set; }
 
         public DateTime StartDate { get; set; }
         public DateTime EndDate { get; set; }
@@ -29,5 +27,14 @@ namespace InspGraph.Model
         camera,
         product,
         defect,
+    }
+
+    /// <summary>
+    /// ChartItem条件
+    /// </summary>
+    public struct ChartItemConditions
+    {
+        public string DataName { get; set; }
+        public Color BackGroundColor { get; set; }
     }
 }

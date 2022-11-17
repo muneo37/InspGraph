@@ -28,44 +28,38 @@ namespace InspGraph.Model
         {
             _chartConditions = condition;
 
-            foreach(string dataName in _chartConditions.DataNames)
+            foreach(ChartItemConditions itemConditon in _chartConditions.ItemConditions)
             {
-                ChartItem item = new ChartItem(CreateDataByDate(dataName).ToArray())
+                ChartItem item = new ChartItem(CreateDataByDate(itemConditon.DataName).ToArray())
                 {
-                    Type = _chartConditions.ChartType,
-                    Labels = CreateLabels().ToArray(),
-                    Label = dataName,
-                    BackgroundColor = Color.FromArgb(100, 94, 142, 134),
-                    BorderColor = Color.FromArgb(255, 94, 142, 134),
-                    BorderWidth = 1,
+                    Label = itemConditon.DataName,
+                    BackgroundColor = itemConditon.BackGroundColor,
                 };
                 this.Items.Add(item);
             }
         }
 
-
         /// <summary>
         /// ラベルデータ作成
         /// </summary>
         /// <returns>ラベル文字列リスト</returns>
-        private List<string> CreateLabels()
+        public List<string> CreateLabels()
         {
-            var labels  = new List<string>();
+            var labels = new List<string>();
 
-            switch(_chartConditions.LabelT)
+            switch (_chartConditions.LabelT)
             {
                 case LabelType.day:
                     DateTime indexDate = _chartConditions.StartDate;
-                    while(indexDate < _chartConditions.EndDate)
+                    while (indexDate < _chartConditions.EndDate)
                     {
-                        labels.Add("\""+indexDate.ToString("MM/dd")+"\"");
+                        labels.Add("\"" + indexDate.ToString("MM/dd") + "\"");
                         indexDate = indexDate.AddDays(1);
                     }
                     break;
             }
             return labels;
         }
-
 
         /// <summary>
         /// 日付ごとのアイテムデータ作成

@@ -13,7 +13,6 @@ namespace InspGraphTest
         [TestInitialize]
         public void チャートデータ構築に関するテスト初期化()
         {          
-            _conditions.ChartType = "bar";
         }
 
         [TestMethod]
@@ -22,7 +21,9 @@ namespace InspGraphTest
             _conditions.LabelT = (int)LabelType.day;
             _conditions.StartDate = DateTime.Parse("2022/11/08");
             _conditions.EndDate = DateTime.Parse("2022/11/14");
-            _conditions.DataNames = new List<string> { "OK数" };
+            _conditions.ItemConditions = new List<ChartItemConditions> {
+                new ChartItemConditions{DataName = "OK数", BackGroundColor = AppColors.AccentColorBlue},
+                };
 
             //日付ラベルデータ
             var chartData = new ChartData(_conditions);
@@ -32,7 +33,7 @@ namespace InspGraphTest
                 foreach (var item in chartData.Items)
                 {
                     var chartString = item.ToString();
-                    Assert.AreEqual(chartString, "{\"label\": \"OK数\", \"data\": [5, 7, 3, 10, 8, 9], \"backgroundColor\": \"rgba(94, 142, 134, 0.39215686274509803)\", \"borderColor\": \"rgba(94, 142, 134, 1)\", \"borderWidth\": 1}");
+                    Assert.AreEqual(chartString, "{\"label\": \"OK数\", \"data\": [5, 7, 3, 10, 8, 9], \"backgroundColor\": \"rgba(114, 125, 242, 1)\"}");
                 }
             }
             else
@@ -48,7 +49,9 @@ namespace InspGraphTest
             _conditions.LabelT = (int)LabelType.day;
             _conditions.StartDate = DateTime.Parse("2022/11/08");
             _conditions.EndDate = DateTime.Parse("2022/11/14");
-            _conditions.DataNames = new List<string> { "NG数" };
+            _conditions.ItemConditions = new List<ChartItemConditions> {
+                            new ChartItemConditions{DataName = "NG数", BackGroundColor = AppColors.AccentColorPink},
+                            };
 
             //日付ラベルデータ
             var chartData = new ChartData(_conditions);
@@ -58,7 +61,7 @@ namespace InspGraphTest
                 foreach (var item in chartData.Items)
                 {
                     var chartString = item.ToString();
-                    Assert.AreEqual(chartString, "{\"label\": \"NG数\", \"data\": [5, 8, 4, 10, 9, 10], \"backgroundColor\": \"rgba(94, 142, 134, 0.39215686274509803)\", \"borderColor\": \"rgba(94, 142, 134, 1)\", \"borderWidth\": 1}");
+                    Assert.AreEqual(chartString, "{\"label\": \"NG数\", \"data\": [5, 8, 4, 10, 9, 10], \"backgroundColor\": \"rgba(249, 94, 126, 1)\"}");
                 }
             }
             else
