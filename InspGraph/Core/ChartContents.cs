@@ -3,7 +3,6 @@ public class ChartContents
 {
     public ChartContents()
     {
-        this.Options = "\"options\": {\"responsive\": true, \"maintainAspectRatio\": false}";
     }
 
     public string? Type { get; set; }

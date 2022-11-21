@@ -36,5 +36,6 @@ namespace InspGraph.Model
     {
         public string DataName { get; set; }
         public Color BackGroundColor { get; set; }
+        public string Options { get; set; }
     }
 }

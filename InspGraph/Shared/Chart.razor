@@ -43,7 +43,7 @@
         jsonBuilder.AppendLine("\"data\": {");
         jsonBuilder.AppendLine($"\"labels\": [{string.Join(", ", this.Contents.Labels)}],");
         jsonBuilder.AppendLine("\"datasets\":[");
-        jsonBuilder.AppendLine("       " + string.Join(", \r\n       ", this.Contents.Items.Select(x => x.ToString())));    
+        jsonBuilder.AppendLine("       " + string.Join(", \r\n       ", this.Contents.Items.Select(x => x.ToString())));
         jsonBuilder.AppendLine("]");
         jsonBuilder.AppendLine("},");
         jsonBuilder.AppendLine(this.Contents.Options);

@@ -34,6 +34,7 @@ namespace InspGraph.Model
                 {
                     Label = itemConditon.DataName,
                     BackgroundColor = itemConditon.BackGroundColor,
+                    Options = itemConditon.Options,
                 };
                 this.Items.Add(item);
             }

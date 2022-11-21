@@ -53,8 +53,8 @@ namespace InspGraph.ViewModels
             {
                 LabelT = (int)LabelType.day,
                 ItemConditions = new List<ChartItemConditions> {
-                            new ChartItemConditions{DataName = "OK数", BackGroundColor = AppColors.AccentColorBlue},
-                            new ChartItemConditions{DataName = "NG数", BackGroundColor = AppColors.AccentColorPink},
+                            new ChartItemConditions{DataName = "OK数", BackGroundColor = AppColors.AccentColorBlue, Options = "\"barPercentage\": 0.2"},
+                            new ChartItemConditions{DataName = "NG数", BackGroundColor = AppColors.AccentColorPink, Options = "\"barPercentage\": 0.2"},
                             },
                 StartDate = DateTime.Parse("2022/11/08"),
                 EndDate = DateTime.Parse("2022/11/14"),
@@ -69,6 +69,7 @@ namespace InspGraph.ViewModels
                 Type = "bar",
                 Labels = chartData.CreateLabels().ToArray(),
                 Items = chartData.Items,
+                Options = "\"options\": {\"responsive\": true, \"maintainAspectRatio\": false}"
             };
         }
         #endregion
