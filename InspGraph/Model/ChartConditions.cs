@@ -23,10 +23,11 @@ namespace InspGraph.Model
     /// </summary>
     public enum LabelType
     {
-        day,
-        camera,
-        product,
-        defect,
+        day,    //日付
+        time,   //時間
+        camera, //カメラ
+        product,//品種
+        defect, //欠陥
     }
 
     /// <summary>

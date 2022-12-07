@@ -3,6 +3,9 @@ using System.Drawing;
 
 namespace InspGraph.Model
 {
+    /// <summary>
+    /// 条件にあわせて、ChartItemを生成するクラス
+    /// </summary>
     public class ChartData
     {
         #region フィールド

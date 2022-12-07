@@ -1,4 +1,7 @@
 ﻿
+/// <summary>
+/// Chartの全体クラス
+/// </summary>
 public class ChartContents
 {
     public ChartContents()

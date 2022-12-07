@@ -1,5 +1,8 @@
 ﻿using System.Drawing;
 
+/// <summary>
+/// Chartのアイテムクラス
+/// </summary>
 public class ChartItem
 {
     public ChartItem(int [] data)
