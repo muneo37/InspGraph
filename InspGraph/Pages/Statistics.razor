@@ -11,14 +11,18 @@
 
     <div class="row">
         <div class="col">
+            @for(int i = 0; i<DataContext.ChartContents.Count; i++)
+            {
                 <div class="middle-chart card">
-                    <Chart id="chart1" Contents="@DataContext.ChartContents"/>
+                    @{ _chart = "chart"+i;}
+                    <Chart id=@_chart Contents="@DataContext.ChartContents[i]"/>
                 </div>
+            }
         </div>
     </div>
 </div>
 
 
 @code {
-
+    private string _chart;
 }

@@ -5,7 +5,7 @@
         public static List<string[]> ReadCommaStrings(string filePath) 
         {
             StreamReader sr;
-            string line;
+            string? line;
             List<string[]> result = new List<string[]>();
 
             if(File.Exists(filePath))
@@ -15,9 +15,11 @@
                 while(sr.Peek() != -1)
                 {
                     line = sr.ReadLine();
-                    string[] arr = line.Split(",");
-
-                    result.Add(arr);
+                    if (line is not null)
+                    {
+                        string[] arr = line.Split(",");
+                        result.Add(arr);
+                    }
                 }
             }
             return result;

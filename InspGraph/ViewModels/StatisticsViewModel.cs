@@ -10,7 +10,7 @@ namespace InspGraph.ViewModels
         /// <summary>
         /// チャート
         /// </summary>
-        private ChartContents _chartContents = new ChartContents();
+        private List<ChartContents> _chartContents = new List<ChartContents>();
 
         /// <summary>
         /// チャートコンフィグレーションのリスト [0]:チャート種類　[1]:ラベルタイプ　[2]以降:アイテム名
@@ -25,7 +25,7 @@ namespace InspGraph.ViewModels
         /// <summary>
         /// チャートプロパティ
         /// </summary>
-        public ChartContents ChartContents
+        public List<ChartContents> ChartContents
         {
             get => this._chartContents;
             set { SetProperty(ref this._chartContents, value); }
@@ -93,7 +93,7 @@ namespace InspGraph.ViewModels
                 chartContents.Add(contents);
             }
 
-            this.ChartContents = chartContents[0];
+            this.ChartContents = chartContents;
         }
 
         /// <summary>
