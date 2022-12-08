@@ -52,6 +52,7 @@ namespace InspGraph.ViewModels
 
             this._chartConfig = ConfigReader.ReadCommaStrings(configFile);
             this.CreateChartCommand = new DelegateCommand(_ => CreateChart());
+            CreateChart();//HACK
         }
 
         /// <summary>
