@@ -7,6 +7,7 @@ namespace InspGraph.Model
     /// </summary>
     public struct ChartConditions
     {
+        public string ChartType { get; set; }
         public LabelType LabelT { get; set; }
         public List<ChartItemConditions> ItemConditions { get; set; }
 
@@ -36,7 +37,6 @@ namespace InspGraph.Model
     public struct ChartItemConditions
     {
         public string DataName { get; set; }
-        public Color BackGroundColor { get; set; }
         public string Options { get; set; }
     }
 }

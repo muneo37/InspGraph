@@ -18,13 +18,15 @@ public class ChartItem
 
     public string? Label { get; set; } = "ChartItem";
 
-    public Color BackgroundColor { get; set; }
+    public Color[] BackgroundColors { get; set; }
 
     public string? Options { get; set; }
  
     public override string ToString()
     {
         var str = "";
+        var colors = ConvertColorToString(this.BackgroundColors);
+
         if (this.Data != null)
         {
             str = "{" +
@@ -32,7 +34,7 @@ public class ChartItem
                     {
                                 $"\"label\": \"{this.Label}\"",
                                 $"\"data\": [{string.Join(", ", this.Data)}]",
-                                $"\"backgroundColor\": \"rgba({this.BackgroundColor.R}, {this.BackgroundColor.G}, {this.BackgroundColor.B}, {this.BackgroundColor.A / 255.0})\"",
+                                $"\"backgroundColor\": [{string.Join(", ", colors)}]",
                    });
             if(Options != null)
             {
@@ -43,4 +45,17 @@ public class ChartItem
 
         return str;
     }
+
+    private List<string> ConvertColorToString(Color[] color)
+    {
+        var strColors = new List<string>();
+
+        for (int i = 0; i < color.Length; i++)
+        {
+            var str = $"\"rgba({color[i].R}, {color[i].G}, {color[i].B}, {color[i].A / 255.0})\"";
+            strColors.Add(str);
+        }
+        return strColors;
+    }
 }
+

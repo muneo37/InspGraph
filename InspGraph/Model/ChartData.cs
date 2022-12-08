@@ -31,9 +31,12 @@ namespace InspGraph.Model
         {
             _chartConditions = condition;
             int[] data = new int[] { };
+            ChartItem item;
+            int index = -1;
 
             foreach(ChartItemConditions itemConditon in _chartConditions.ItemConditions)
             {
+                index++;
                 switch(_chartConditions.LabelT)
                 {
                     case LabelType.day:
@@ -44,13 +47,30 @@ namespace InspGraph.Model
                         break;
                 }
 
-                ChartItem item = new ChartItem(data)
+                switch(_chartConditions.ChartType)
                 {
-                    Label = itemConditon.DataName,
-                    BackgroundColor = itemConditon.BackGroundColor,
-                    Options = itemConditon.Options,
-                };
-                this.Items.Add(item);
+                    case "bar":
+                    case "line":
+                        item = new ChartItem(data)
+                        {
+                            Label = itemConditon.DataName,
+                            BackgroundColors = SetBackGroundColor(index, data).ToArray(),
+                            Options = itemConditon.Options,
+                        };
+                        this.Items.Add(item);
+                        break;
+                    case "doughnut":
+                        item = new ChartItem(data)
+                        {
+                            Label = itemConditon.DataName,
+                            BackgroundColors = SetBackGroundColorOrder(data).ToArray(),
+                            Options = itemConditon.Options,
+                        };
+                        this.Items.Add(item);
+                        break;
+                    default: 
+                        break;
+                }
             }
         }
 
@@ -148,6 +168,40 @@ namespace InspGraph.Model
             }
 
             return data;
+        }
+
+        /// <summary>
+        /// 同じ色のColorリストを取得する。
+        /// </summary>
+        /// <param name="accentColorNumber">アクセントカラー番号</param>
+        /// <param name="data">データ</param>
+        /// <returns>Colorリスト</returns>
+        private List<Color> SetBackGroundColor(int accentColorNumber, int[] data)
+        {
+            var colors = new List<Color>();
+
+            foreach (var datum in data)
+            {
+                colors.Add(AppColors.AccentColors[accentColorNumber]);
+            }
+            return colors;
+        }
+
+        /// <summary>
+        /// アクセントカラーを順番にリスト化したものを取得する。
+        /// </summary>
+        /// <param name="data">データ</param>
+        /// <returns>Colorリスト</returns>
+        private List<Color> SetBackGroundColorOrder(int[] data)
+        {
+            var colors = new List<Color>();
+
+            for(int i=0; i<data.Length; i++)
+            {
+                var num = i%AppColors.AccentColors.Length;
+                colors.Add(AppColors.AccentColors[num]);
+            }
+            return colors;
         }
 
         #endregion
