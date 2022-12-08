@@ -30,10 +30,21 @@ namespace InspGraph.Model
         public ChartData(ChartConditions condition)
         {
             _chartConditions = condition;
+            int[] data = new int[] { };
 
             foreach(ChartItemConditions itemConditon in _chartConditions.ItemConditions)
             {
-                ChartItem item = new ChartItem(CreateDataByDate(itemConditon.DataName).ToArray())
+                switch(_chartConditions.LabelT)
+                {
+                    case LabelType.day:
+                        data = CreateDataByDate(itemConditon.DataName).ToArray();
+                        break;
+                    case LabelType.camera:
+                        data = CreateDataByCamera(itemConditon.DataName).ToArray();
+                        break;
+                }
+
+                ChartItem item = new ChartItem(data)
                 {
                     Label = itemConditon.DataName,
                     BackgroundColor = itemConditon.BackGroundColor,
@@ -59,6 +70,13 @@ namespace InspGraph.Model
                     {
                         labels.Add("\"" + indexDate.ToString("MM/dd") + "\"");
                         indexDate = indexDate.AddDays(1);
+                    }
+                    break;
+                case LabelType.camera:
+                    var cameraNumbers = Select.CameraNumbers();
+                    foreach (var cameraNumber in cameraNumbers)
+                    {
+                        labels.Add("\"" +"Camera"+ cameraNumber.ToString() + "\"");
                     }
                     break;
             }
@@ -95,6 +113,38 @@ namespace InspGraph.Model
                     data.Add(count);
                 }
                 indexDate = indexDate.AddDays(1);
+            }
+
+            return data;
+        }
+
+        /// <summary>
+        /// カメラごとのアイテムデータ作成
+        /// </summary>
+        /// <param name="dataName">データの種類</param>
+        /// <returns>アイテムデータリスト</returns>
+        private List<int> CreateDataByCamera(string dataName)
+        {
+            var data = new List<int>();
+            var cameraCount = Select.CameraNumbers();
+
+            foreach (var camera in cameraCount)
+            {
+                var targetInspResult = Select.InspectResultWhereCamera(camera, _chartConditions.StartDate, _chartConditions.EndDate);
+
+                int count = 0;
+                switch (dataName)
+                {
+                    case "OK数":
+                        Func<InspectResult, bool> isOk = x => x.IsOK;
+                        count = Count<InspectResult>(targetInspResult, isOk);
+                        break;
+                    case "NG数":
+                        Func<InspectResult, bool> isNg = x => !x.IsOK;
+                        count = Count<InspectResult>(targetInspResult, isNg);
+                        break;
+                }
+                data.Add(count);
             }
 
             return data;

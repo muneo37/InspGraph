@@ -31,6 +31,7 @@ namespace InspGraph.Operator
         {
             return _db.InspectResults;
         }
+
         /// <summary>
         /// ID条件から検査結果を取得します。
         /// </summary>
@@ -45,12 +46,24 @@ namespace InspGraph.Operator
         /// <summary>
         /// 検査時間条件から検査結果を取得します。
         /// </summary>
-        /// <param name="startTime"></param>
-        /// <param name="endTime"></param>
+        /// <param name="startTime">開始日時</param>
+        /// <param name="endTime">終了日時</param>
         /// <returns>指定範囲内の検査結果データリスト</returns>
         public static IEnumerable<InspectResult> InspectResultWhereTime(DateTime startTime, DateTime endTime)
         {
             return _db.InspectResults.Where(i => (startTime <= i.InspTime) && (i.InspTime <= endTime));
+        }
+
+        /// <summary>
+        /// 指定のカメラ番号と検査時間の検査結果を取得します。
+        /// </summary>
+        /// <param name="cameraNumber">カメラ番号</param>
+        /// <param name="startTime">開始日時</param>
+        /// <param name="endTime">終了日時</param>
+        /// <returns></returns>
+        public static IEnumerable<InspectResult> InspectResultWhereCamera(int cameraNumber, DateTime startTime, DateTime endTime)
+        {
+            return _db.InspectResults.Where(i => (startTime <= i.InspTime) && (i.InspTime <= endTime) && (i.CameraNo == cameraNumber));
         }
 
         /// <summary>
@@ -67,7 +80,26 @@ namespace InspGraph.Operator
                 return null;
             }
         }
+
+        /// <summary>
+        /// カメラの番号を取得します。
+        /// </summary>
+        /// <returns>カメラ番号</returns>
+        public static IEnumerable<int> CameraNumbers()
+        {
+            var list = new List<int>();
+            foreach(var result in _db.InspectResults)
+            {
+                if(!list.Contains(result.CameraNo))
+                {
+                    list.Add(result.CameraNo);
+                }
+            }
+            return list;
+        }
+
         #endregion
+
 
         #region User関係
         /// <summary>
