@@ -68,7 +68,7 @@ namespace InspGraph.ViewModels
 
                 for(int i=2; i<config.Length; i++)
                 {
-                    itemConditions.Add(new ChartItemConditions { DataName = config[i], BackGroundColor = AppColors.AccentColorBlue, Options = "\"barPercentage\": 0.2" });//TODO
+                    itemConditions.Add(new ChartItemConditions { DataName = config[i], BackGroundColor = AppColors.AccentColors[i-2], Options = "\"barPercentage\": 0.2" });//TODO
                 }
 
                 ChartConditions conditions = new ChartConditions()
