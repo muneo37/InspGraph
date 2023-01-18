@@ -17,7 +17,6 @@ namespace InspGraph
         /// <summary>
         /// 品種識別子を設定または取得します
         /// </summary>
-        public int WorkDataId { get; set; }
         public WorkData WorkData { get; set; } = new WorkData();
 
         /// <summary>
@@ -40,6 +39,11 @@ namespace InspGraph
         /// true:OK false:NG
         /// </summary>
         public bool IsOK { get; set; }
+
+        /// <summary>
+        /// 欠陥詳細を設定または取得します
+        /// </summary>
+        public string DefectDetail { get; set; } = string.Empty;
 
         /// <summary>
         /// 検査した時間を設定または取得します

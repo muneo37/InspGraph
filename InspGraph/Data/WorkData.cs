@@ -19,14 +19,9 @@ namespace InspGraph
         public string WorkDataName { get; set; } = string.Empty;
 
         /// <summary>
-        /// 作成ユーザー識別子を設定または取得します
+        /// 品種作成日時を設定または取得します
         /// </summary>
-        public int UserId { get; set; }
-        public User User { get; set; } = new User();
+        public DateTime CreateDate { get; set; }
 
-        /// <summary>
-        /// 更新ログを設定または取得します
-        /// </summary>
-        public List<WorkDataChangeLog>? WorkDataChangeLog { get; set; }
     }
 }
