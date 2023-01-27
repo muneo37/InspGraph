@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
 
 namespace InspGraph
 {
@@ -11,6 +12,7 @@ namespace InspGraph
         /// <summary>
         /// 品種識別子を設定または取得します
         /// </summary>
+        [Key]
         public int WorkDataId { get; set; }
 
         /// <summary>

@@ -8,17 +8,23 @@ namespace InspGraph.Operator
 {
     public class Insert : IDisposable
     {
-        private static InspectionDatasContext _db;
+        private static InspectionDataContext _db;
 
         static Insert()
         {
-            _db = new InspectionDatasContext();
+            _db = new InspectionDataContext();
         }
 
         public static void InsertInspectResult(InspectResult inspectResult)
         {
             _db.Update(inspectResult);
             //_db.InspectResults.Add(inspectResult);
+            _db.SaveChanges();
+        }
+
+        public static void InsertWorkData(WorkData workData) 
+        {
+            _db.Update(workData);
             _db.SaveChanges();
         }
 

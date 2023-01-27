@@ -1,5 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 
 namespace InspGraph
@@ -12,10 +11,17 @@ namespace InspGraph
         /// <summary>
         /// 識別子を設定または取得します
         /// </summary>
+        [Key]
         public int InspectResultId { get; set; }
 
         /// <summary>
-        /// 品種識別子を設定または取得します
+        /// 品種の識別子を取得または設定します
+        /// </summary>
+        [ForeignKey("WorkData")]
+        public int WorkDataId { get; set; }
+
+        /// <summary>
+        /// 品種識を設定または取得します
         /// </summary>
         public WorkData WorkData { get; set; } = new WorkData();
 

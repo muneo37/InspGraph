@@ -22,7 +22,7 @@ namespace InspGraphTest
             _conditions.StartDate = DateTime.Parse("2022/11/08");
             _conditions.EndDate = DateTime.Parse("2022/11/14");
             _conditions.ItemConditions = new List<ChartItemConditions> {
-                new ChartItemConditions{DataName = "OK数", BackGroundColor = AppColors.AccentColorBlue},
+                new ChartItemConditions{DataName = "OK数"},
                 };
 
             //日付ラベルデータ
@@ -50,7 +50,7 @@ namespace InspGraphTest
             _conditions.StartDate = DateTime.Parse("2022/11/08");
             _conditions.EndDate = DateTime.Parse("2022/11/14");
             _conditions.ItemConditions = new List<ChartItemConditions> {
-                            new ChartItemConditions{DataName = "NG数", BackGroundColor = AppColors.AccentColorPink},
+                            new ChartItemConditions{DataName = "NG数"},
                             };
 
             //日付ラベルデータ
