@@ -1,6 +1,8 @@
-﻿using System;
+﻿using Microsoft.EntityFrameworkCore.Metadata.Internal;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
 
 namespace InspGraph
 {
@@ -23,6 +25,7 @@ namespace InspGraph
         /// <summary>
         /// 品種作成日時を設定または取得します
         /// </summary>
+        [Column(TypeName = "timestamp without time zone")]
         public DateTime CreateDate { get; set; }
 
     }

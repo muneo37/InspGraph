@@ -21,11 +21,6 @@ namespace InspGraph
         public int WorkDataId { get; set; }
 
         /// <summary>
-        /// 品種識を設定または取得します
-        /// </summary>
-        public WorkData WorkData { get; set; } = new WorkData();
-
-        /// <summary>
         /// カメラNoを設定または取得します
         /// </summary>
         public int CameraNo { get; set; }

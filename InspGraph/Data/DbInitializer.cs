@@ -4,10 +4,10 @@ namespace InspGraph.Data
 {
     public static class DbInitializer
     {
-        public static void Initialize(InspectionDataContext context)
+        public static void Initialize()
         {
             WorkData workData = new WorkData();
-            workData.WorkDataId = 1;
+            //workData.WorkDataId = 1;
             workData.WorkDataName= "Test";
             workData.CreateDate = DateTime.Parse("2023/01/27 13:27:00");
             Insert.InsertWorkData(workData);
@@ -15,9 +15,8 @@ namespace InspGraph.Data
             for (int i = 0; i < 10; i++)
             {
                 InspectResult result = new InspectResult();
-                result.InspectResultId = i;
+                //result.InspectResultId = i;
                 result.WorkDataId = 1;
-                result.WorkData = Select.WorkDataWhereId(result.WorkDataId);
                 result.CameraNo = 1;
                 result.PCNo = 1;
                 result.Count = i;
@@ -30,9 +29,8 @@ namespace InspGraph.Data
             for (int i = 10; i < 20; i++)
             {
                 InspectResult result = new InspectResult();
-                result.InspectResultId = i;
+                //result.InspectResultId = i;
                 result.WorkDataId = 1;
-                result.WorkData = Select.WorkDataWhereId(result.WorkDataId);
                 result.CameraNo = 1;
                 result.PCNo = 1;
                 result.Count = i;

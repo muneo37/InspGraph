@@ -2,7 +2,7 @@
 
 namespace InspGraph.Data
 {
-    public class OperatingHours
+    public class OperatingHour
     {
         /// <summary>
         /// 識別子を設定または取得します。

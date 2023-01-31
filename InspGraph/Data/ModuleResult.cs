@@ -18,11 +18,6 @@ namespace InspGraph.Data
         public int InspResultId { get; set; }
 
         /// <summary>
-        /// 検査結果を設定または取得します。
-        /// </summary>
-        public InspectResult InspResult { get; set; } = new InspectResult();
-
-        /// <summary>
         /// データの名称を設定または取得します
         /// </summary> 
         public string DataName { get; set; } = string.Empty;

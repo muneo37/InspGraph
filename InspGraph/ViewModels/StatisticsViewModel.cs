@@ -1,4 +1,6 @@
-﻿using InspGraph.Model;
+﻿using InspGraph.Data;
+using InspGraph.Model;
+using InspGraph.Operator;
 using System.Collections.ObjectModel;
 
 namespace InspGraph.ViewModels

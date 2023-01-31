@@ -38,7 +38,7 @@ namespace InspGraph.Operator
         /// <param name="lowerValue">下限値</param>
         /// <param name="upperValue">上限値</param>
         /// <returns>条件範囲内の検査結果データリスト</returns>
-        public static IEnumerable<InspectResult> InspectResultWhereId(int lowerValue,int upperValue)
+        public static IEnumerable<InspectResult> InspectResultWhereId(int lowerValue, int upperValue)
         {
             return _db.InspectResults.Where(i => (lowerValue <= i.InspectResultId) && (i.InspectResultId <= upperValue));
         }
@@ -88,9 +88,9 @@ namespace InspGraph.Operator
         public static IEnumerable<int> CameraNumbers()
         {
             var list = new List<int>();
-            foreach(var result in _db.InspectResults)
+            foreach (var result in _db.InspectResults)
             {
-                if(!list.Contains(result.CameraNo))
+                if (!list.Contains(result.CameraNo))
                 {
                     list.Add(result.CameraNo);
                 }
@@ -104,12 +104,12 @@ namespace InspGraph.Operator
         #region WorkData関係
         public static IEnumerable<WorkData> WorkDataAll()
         {
-            return _db.WorkDatas;
+            return _db.WorkData;
         }
 
         public static IEnumerable<WorkData> WorkDataWhereId(int lowerValue, int upperValue)
         {
-            return _db.WorkDatas.Where(w => (lowerValue <= w.WorkDataId) && (w.WorkDataId <= upperValue));
+            return _db.WorkData.Where(w => (lowerValue <= w.WorkDataId) && (w.WorkDataId <= upperValue));
         }
 
         public static WorkData? WorkDataWhereId(int equalValue)
@@ -127,6 +127,14 @@ namespace InspGraph.Operator
 
         #endregion
 
+
+        
+        public static void EnsureDeleted()
+        {
+            _db.Database.EnsureDeleted();
+        }
+
+        public static bool EnsureCreated() { return _db.Database.EnsureCreated();}
 
         public void Dispose()
         {
